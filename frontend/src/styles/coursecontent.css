@@ -1,0 +1,210 @@
+/* .module-card {
+  background: #111;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.session-item {
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.session-item.completed {
+  color: #4caf50;
+}
+
+.session-item.active {
+  color: #2196f3;
+}
+
+.session-item.locked {
+  color: #777;
+  cursor: not-allowed;
+} */
+
+
+/* ---------- Content Page Wrapper ---------- */
+.content-page-wrapper {
+  max-width: 980px;
+  margin: 0 auto;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.btn-back-link {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.btn-back-link:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+  transform: translateX(-2px);
+}
+
+/* ---------- Modules Stack ---------- */
+.modules-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* FIXED: Changed from #111 to clean #ffffff white card */
+.module-card-pro,
+.module-card {
+  background: #ffffff !important; /* 🔥 Replaced black #111 */
+  border-radius: 16px !important;
+  border: 1px solid #e2e8f0 !important;
+  padding: 26px !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+}
+
+.module-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 18px;
+}
+
+.module-number-badge {
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.module-number-badge.locked {
+  background: #64748b;
+}
+
+.module-title-text {
+  font-size: 19px;
+  font-weight: 700;
+  color: #0f172a !important; /* 🔥 Fixes invisible title */
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.sessions-count-pill {
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+/* ---------- Sessions List ---------- */
+.sessions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sessions-section-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #475569;
+  margin: 0 0 6px 0;
+}
+
+.sessions-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.session-item-card,
+.session-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  padding: 12px 18px !important;
+  border-radius: 12px !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer;
+}
+
+.session-item-card.completed {
+  background: #f0fdf4 !important;
+  border-color: #bbf7d0 !important;
+}
+
+.session-item-card.active:hover {
+  background: #f0f9ff !important;
+  border-color: #bae6fd !important;
+}
+
+.session-item-card.locked {
+  background: #f1f5f9 !important;
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.session-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.session-status-icon {
+  font-size: 18px;
+}
+
+.session-name {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #1e293b !important;
+}
+
+.session-status-badge {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.session-status-badge.open {
+  background: #e0f2fe;
+  color: #0284c7;
+  border: 1px solid #bae6fd;
+}
+
+.session-status-badge.success {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+
+.session-status-badge.locked {
+  background: #e2e8f0;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+}
+
+.loading-state-card,
+.empty-content-card {
+  background: #ffffff;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+  color: #64748b;
+}

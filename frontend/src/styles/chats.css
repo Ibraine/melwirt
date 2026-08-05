@@ -1,0 +1,192 @@
+/* =========================================
+   EXACT CHATS.CSS FOR YOUR JSX
+   (Fixes Sidebar Overlap, Header Cut-off & Styling)
+========================================= */
+
+/* Main Content Wrapper Offset */
+.d-flex > .flex-grow-1 {
+  margin-left: 240px !important;  /* Sidebar width offset */
+  padding-top: 105px !important;   /* Stops top header cut-off */
+  padding-left: 28px !important;
+  padding-right: 28px !important;
+  padding-bottom: 40px !important;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.container h2,
+.container h4 {
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+/* =========================================
+   CARDS STYLING (Sessions & Chat Box)
+========================================= */
+.flex-grow-1 .card {
+  background: #ffffff !important;
+  border-radius: 16px !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04) !important;
+  padding: 20px !important;
+}
+
+.flex-grow-1 .card h6 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 14px;
+}
+
+/* =========================================
+   SESSIONS TABLE
+========================================= */
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  background-color: #f8fafc !important;
+  color: #475569 !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  padding: 10px 12px !important;
+  border-bottom: 2px solid #e2e8f0 !important;
+}
+
+.table td {
+  padding: 12px !important;
+  font-size: 13.5px !important;
+  color: #1e293b !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  vertical-align: middle !important;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f5f9 !important;
+  cursor: pointer;
+}
+
+.table-active,
+.table tbody tr.table-active {
+  background-color: #e0f2fe !important;
+  font-weight: 600;
+}
+
+/* =========================================
+   CHAT BOX & MESSAGES
+========================================= */
+.chat-window {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  background: #ffffff;
+}
+
+.chat-box {
+  height: 380px !important;
+  max-height: 480px !important;
+  overflow-y: auto !important;
+  border: 1px solid #e2e8f0 !important;
+  padding: 16px !important;
+  border-radius: 12px !important;
+  background: #f8fafc !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  max-width: 75%;
+  font-size: 13.5px;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+/* My Messages (Sent by You / Teacher) */
+.message.me,
+.message.teacher {
+  background: #0284c7 !important;
+  color: #ffffff !important;
+  align-self: flex-end;
+  text-align: left;
+  border-bottom-right-radius: 2px;
+  box-shadow: 0 1px 3px rgba(2, 132, 199, 0.2);
+}
+
+.message.me *,
+.message.teacher * {
+  color: #ffffff !important;
+}
+
+/* Other User Messages (Student / Them) */
+.message.them,
+.message.student {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #e2e8f0 !important;
+  align-self: flex-start;
+  text-align: left;
+  border-bottom-left-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* =========================================
+   INPUT FIELD & BUTTONS
+========================================= */
+.flex-grow-1 .form-control {
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+  font-size: 14px !important;
+}
+
+.flex-grow-1 .form-control:focus {
+  border-color: #0284c7 !important;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15) !important;
+  outline: none !important;
+}
+
+.btn-primary,
+.flex-grow-1 .btn-primary {
+  background-color: #0284c7 !important;
+  border-color: #0284c7 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  padding: 9px 20px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25) !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-primary:hover,
+.flex-grow-1 .btn-primary:hover {
+  background-color: #0369a1 !important;
+  border-color: #0369a1 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .d-flex > .flex-grow-1 {
+    margin-left: 0 !important;
+    padding-top: 100px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}

@@ -1,0 +1,225 @@
+/* Background section */
+.courses-section {
+  background: #034694;
+}
+
+/* Course Card */
+.course-card {
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.05); /* translucent card */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  padding: 15px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px); /* subtle blur */
+  color: white;
+}
+
+/* Hover effect */
+.course-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Course Image Styling */
+.course-card img {
+  border-radius: 12px;
+  object-fit: cover;
+  height: 220px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Typography */
+.course-card .card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.course-card .card-text {
+  font-size: 0.95rem;
+  color: #eee;
+}
+
+/* Read More Link */
+.read-more {
+  color: #f7931e;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+/* Highlighted heading */
+.highlight-orange {
+  color: #f7931e;
+}
+
+
+.course-card .card-body{
+background: transparent;
+}
+
+
+/* Tabs Styling */
+
+.tabs-container{
+display:flex;
+justify-content:center;
+gap:15px;
+}
+
+.tab-btn{
+padding:10px 24px;
+border-radius:30px;
+border:none;
+background:#d6ecfa;
+color:#1c5c8a;
+font-weight:500;
+cursor:pointer;
+transition:all 0.3s ease;
+}
+
+.tab-btn:hover{
+background:#2b7bbf;
+color:white;
+}
+
+.tab-btn.active{
+background:#2b7bbf;
+color:white;
+}
+
+
+
+.read-more{
+  color: #f7931e !important;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.read-more:hover{
+  color: #ffa733 !important;
+  text-decoration: underline;
+}
+
+
+
+.course-card{
+display:flex;
+flex-direction:column;
+height:100%;
+}
+
+.course-card .card-body{
+flex-grow:1;
+display:flex;
+flex-direction:column;
+}
+
+.course-card p{
+flex-grow:1;
+}
+
+
+.swiper{
+padding-bottom:40px;
+}
+
+.swiper-slide{
+height:auto;
+}
+
+
+
+.courses-subtitle{
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+
+/* ✅ Tablet Fix */
+@media (max-width: 991px) {
+
+  .tabs-container {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .tab-btn {
+    padding: 8px 18px;
+    font-size: 14px;
+  }
+
+  .course-card img {
+    height: 200px;
+  }
+
+  .courses-section h2 {
+    font-size: 1.9rem;
+  }
+}
+
+
+/* ✅ Mobile Fix */
+@media (max-width: 767px) {
+
+  .courses-section {
+    text-align: center;
+  }
+
+  .courses-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .courses-subtitle {
+    font-size: 18px;
+  }
+
+  /* 🔥 Tabs scrollable (important fix) */
+  .tabs-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 10px;
+    justify-content: flex-start;
+  }
+
+  .tabs-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  /* Card Fix */
+  .course-card {
+    padding: 12px;
+  }
+
+  .course-card img {
+    height: 180px;
+  }
+
+  .course-card .card-title {
+    font-size: 1rem;
+  }
+
+  .course-card .card-text {
+    font-size: 0.9rem;
+  }
+
+  .read-more {
+    font-size: 14px;
+  }
+}

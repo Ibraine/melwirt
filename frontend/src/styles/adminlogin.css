@@ -1,0 +1,160 @@
+/* Admin Login Wrapper */
+.admin-login-wrapper {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 120px;
+  position: relative;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Blue gradient overlay */
+.admin-login-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.1) 30%,
+    rgba(0, 102, 204, 0.45) 60%,
+    rgba(0, 102, 204, 0.75) 100%
+  );
+  z-index: 1;
+}
+
+/* Login Card (Exact 370px width like Figma) */
+.login-right-card {
+  width: 370px;
+  max-width: 90%;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px 28px;
+  z-index: 2;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-sizing: border-box;
+}
+
+/* Logo */
+.login-logo {
+  height: 40px;
+  margin-bottom: 16px;
+  object-fit: contain;
+}
+
+/* Description */
+.login-desc {
+  font-size: 12.5px;
+  color: #64748b;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+.error-msg {
+  color: #ef4444;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Input Groups */
+.input-group-custom {
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.input-group-custom label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #0284c7; /* Figma Blue Label */
+  margin-bottom: 6px;
+  display: block;
+}
+
+.input-group-custom input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 13.5px;
+  color: #0f172a;
+  outline: none;
+  background: #ffffff;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input-group-custom input:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+/* Password Toggle Wrapper */
+.password-input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-box input {
+  padding-right: 40px !important;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: color 0.2s ease;
+}
+
+.password-toggle-btn:hover {
+  color: #0284c7;
+}
+
+/* Orange Capsule Submit Button (Exact Figma Style) */
+.admin-login-submit-btn {
+  width: 100% !important;
+  padding: 11px !important;
+  background: #ff7a00 !important; /* Figma Orange */
+  border: none !important;
+  border-radius: 50px !important; /* Capsule shape */
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 14.5px !important;
+  margin-top: 10px !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 14px rgba(255, 122, 0, 0.35) !important;
+  transition: all 0.2s ease !important;
+}
+
+.admin-login-submit-btn:hover{
+  background: #e66e00 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 18px rgba(255, 122, 0, 0.45) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-login-wrapper {
+    padding-right: 0;
+    justify-content: center;
+  }
+
+  .login-right-card {
+    width: 90%;
+    padding: 24px 20px;
+  }
+}

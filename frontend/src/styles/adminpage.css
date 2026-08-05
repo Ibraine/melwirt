@@ -1,0 +1,199 @@
+/* ================= ADMIN MAIN LAYOUT ================= */
+.admin-layout{
+  min-height:100vh;
+  background:#f7f9fb;
+  font-family:"Inter","Poppins",sans-serif;
+}
+
+.admin-content{
+  margin-left:260px;          /* sidebar ke baad start */
+  margin-top:70px;            /* top navbar ke neeche */
+  padding:30px;
+  max-width:calc(100% - 260px);
+  box-sizing:border-box;
+}
+
+/* ================= PAGE HEADER ================= */
+.page-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  gap:15px;
+  margin-bottom:22px;
+}
+
+.page-header h2{
+  margin:0;
+  font-size:30px;
+  font-weight:700;
+  color:#1e293b;
+}
+
+.page-sub{
+  margin-top:4px;
+  font-size:14px;
+  color:#6b7280;
+}
+
+/* ================= BUTTON ================= */
+.btn-primary{
+  background:#1565c0;
+  color:#fff;
+  border:none;
+  padding:10px 20px;
+  border-radius:30px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* ================= FILTER BAR ================= */
+.filter-bar{
+  background:#fff;
+  padding:18px;
+  border-radius:14px;
+  margin-bottom:20px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.filter-bar input,
+.filter-bar select{
+  height:42px;
+  padding:0 14px;
+  border:1px solid #dbe3ec;
+  border-radius:10px;
+}
+
+/* ================= TABLE ================= */
+.table-container{
+  background:#fff;
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.05);
+  overflow-x:auto;
+}
+
+.data-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.data-table th{
+  background:#f1f5f9;
+  padding:14px;
+  text-align:center;
+}
+
+.data-table td{
+  padding:14px;
+  text-align:center;
+  border-bottom:1px solid #eef2f7;
+}
+
+.action-buttons{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+}
+
+.icon-btn{
+  width:34px;
+  height:34px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* ================= PAGINATION ================= */
+.pagination-controls{
+  display:flex;
+  justify-content:center;
+  margin-top:20px;
+  gap:8px;
+}
+
+/* ================= EMPTY ================= */
+.empty-state{
+  background:#fff;
+  padding:50px;
+  border-radius:14px;
+  text-align:center;
+}
+
+/* ================= EDIT MODAL ================= */
+.edit-overlay,
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.edit-modal,
+.modal-content{
+  background:#fff;
+  width:520px;
+  max-width:95%;
+  border-radius:16px;
+  padding:25px;
+  box-shadow:0 10px 35px rgba(0,0,0,0.2);
+}
+
+.edit-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.close-btn{
+  background:#ef4444;
+  color:#fff;
+  border:none;
+  width:34px;
+  height:34px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* ================= TAB ================= */
+@media(max-width:991px){
+  .admin-content{
+    margin-left:0;
+    max-width:100%;
+    padding:20px;
+    margin-top:80px;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:600px){
+  .page-header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .page-header h2{
+    font-size:24px;
+  }
+
+  .filter-bar{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .filter-bar input,
+  .filter-bar select{
+    width:100%;
+  }
+
+  .data-table{
+    min-width:720px;
+  }
+}

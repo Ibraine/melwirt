@@ -1,0 +1,185 @@
+/* ===============================
+   LANDING NAVBAR FINAL
+================================ */
+
+.landing-navbar {
+  background-color: #ffffff;
+  font-family: "Segoe UI", sans-serif;
+  transition: all 0.3s ease-in-out;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  /* ✅ MAIN HEIGHT CONTROL */
+  min-height: 62px !important;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
+
+/* ===============================
+   BOOTSTRAP SPACE FIX
+================================ */
+
+.landing-navbar .container {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  align-items: center;
+}
+
+.landing-navbar .navbar-brand {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+}
+
+
+/* ===============================
+   LOGO SIZE
+================================ */
+
+.landing-navbar img {
+  height: 40px !important;
+  width: auto;
+}
+
+
+/* ===============================
+   NAV LINKS
+================================ */
+
+.landing-navbar .nav-link {
+  color: #333333;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 6px 12px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.landing-navbar .nav-link:hover,
+.landing-navbar .nav-link.active-link {
+  color: #0056ff;
+  border-bottom: 2px solid #0056ff;
+}
+
+
+/* ===============================
+   DEMO BUTTON
+================================ */
+
+.demo-btn {
+  background-color: #0050ff;
+  color: #fff;
+  border-radius: 25px;
+  padding: 6px 18px;
+  font-weight: 500;
+  border: none;
+  font-size: 14px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.demo-btn:hover {
+  background-color: #003ed3;
+  color: white;
+}
+
+
+
+
+/* ✅ Tablet Fix */
+@media (max-width: 991px) {
+
+  .landing-navbar {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .landing-navbar img {
+    height: 36px !important;
+  }
+
+  .landing-navbar .nav-link {
+    font-size: 14px;
+  }
+}
+
+
+/* ✅ Mobile Fix */
+
+
+@media (max-width: 767px) {
+
+  .landing-navbar {
+    min-height: 56px !important;
+  }
+
+  /* Toggle button align */
+  .navbar-toggler {
+    border: none;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Collapse menu styling */
+  .landing-navbar .navbar-collapse {
+    background: #ffffff;
+    margin-top: 10px;
+    padding: 15px 10px;
+    border-radius: 10px;
+  }
+
+  /* Nav links mobile */
+  .landing-navbar .nav-link {
+    width: 100%;
+    padding: 10px 0;
+    justify-content: center;
+    border-bottom: none !important;
+  }
+
+  .landing-navbar .nav-link.active-link {
+    border-bottom: none;
+    color: #0056ff;
+  }
+
+  /* Stack center */
+  .landing-navbar .navbar-nav {
+    gap: 10px !important;
+  }
+}
+
+.navbar-toggler{
+    padding:4px 8px;
+}
+
+.navbar-toggler:focus{
+    box-shadow:none;
+}
+
+.navbar-toggler-icon{
+    width:20px;
+    height:20px;
+}
+
+.landing-navbar img{
+    height:34px!important;
+}
+
+.landing-navbar .navbar-collapse{
+    margin-top:12px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.landing-navbar .nav-link{
+    padding:12px 0;
+    font-size:15px;
+}

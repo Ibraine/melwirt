@@ -1,0 +1,83 @@
+/* Filter bar (Figma-style) */
+.fw-filterbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 18px 22px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(20, 32, 56, 0.06);
+  margin-bottom: 20px;
+}
+
+.fb-title {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #1f2d3d;
+  font-weight: 600;
+}
+
+.fb-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.fb-control input,
+.fb-control select {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #e3e8ef;
+  background: #fbfdff;
+  min-width: 220px;
+  font-size: 0.95rem;
+  color: #263238;
+  transition: box-shadow .15s ease, border-color .15s ease;
+}
+
+.fb-control input::placeholder {
+  color: #9aa5b1;
+}
+
+.fb-control input:focus,
+.fb-control select:focus {
+  outline: none;
+  border-color: #2b72d9;
+  box-shadow: 0 6px 18px rgba(43,114,217,0.08);
+}
+
+.fb-add .btn-add {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: #ff8a00;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(255,138,0,0.18);
+}
+
+.fb-add .btn-add:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 880px) {
+  .fb-control input,
+  .fb-control select {
+    min-width: 160px;
+  }
+}
+
+@media (max-width: 520px) {
+  .fw-filterbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .fb-controls {
+    justify-content: space-between;
+  }
+}

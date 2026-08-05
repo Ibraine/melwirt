@@ -1,0 +1,235 @@
+/* .course-form {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course-form label {
+  font-weight: 600;
+  color: #333;
+}
+
+.course-form .form-control {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: 0.2s ease;
+}
+
+.course-form .form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
+}
+
+.course-form button {
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.course-form button:hover {
+  background-color: #0056b3;
+}
+ */
+
+
+
+
+ /* ---------- Page & Main Content Wrapper ---------- */
+.add-course-page {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.main-content-wrapper {
+  margin-left: 240px; /* Prevents sidebar overlap */
+  min-height: 100vh;
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-title {
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- Card Container ---------- */
+.add-course-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  padding: 28px;
+}
+
+/* ---------- Form Labels & Required Star ---------- */
+.form-label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-label .req {
+  color: #ef4444;
+}
+
+/* ---------- Custom Styled Inputs ---------- */
+.custom-input {
+  background-color: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+  font-size: 14px !important;
+  color: #0f172a !important;
+  transition: all 0.2s ease !important;
+}
+
+.custom-input::placeholder {
+  color: #94a3b8;
+}
+
+.custom-input:focus {
+  background-color: #ffffff !important;
+  border-color: #0284c7 !important;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15) !important;
+  outline: none !important;
+}
+
+/* Textarea Specific */
+textarea.custom-input {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* Select Dropdown Arrow Custom Styling */
+select.custom-input {
+  cursor: pointer;
+}
+
+/* ---------- Custom File Upload Zone ---------- */
+.upload-dropzone {
+  position: relative;
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  background-color: #f8fafc;
+  text-align: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  padding: 24px 16px;
+}
+
+.upload-dropzone:hover {
+  border-color: #0284c7;
+  background-color: #f0f9ff;
+}
+
+.file-input-hidden {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.dropzone-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: #64748b;
+}
+
+.dropzone-label svg {
+  color: #0284c7;
+  margin-bottom: 4px;
+}
+
+.upload-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.upload-sub {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* Image Preview Container */
+.image-preview-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 10px 14px;
+  border-radius: 12px;
+}
+
+.preview-img {
+  width: 90px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+}
+
+.btn-remove-img {
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: #dc2626;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-remove-img:hover {
+  background: #fee2e2;
+}
+
+/* ---------- Submit Button ---------- */
+.btn-submit-course {
+  background: #0284c7;
+  color: #ffffff;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
+}
+
+.btn-submit-course:hover {
+  background: #0369a1;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-submit-course:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .main-content-wrapper {
+    margin-left: 0;
+  }
+}
+

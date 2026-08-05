@@ -1,0 +1,207 @@
+/* ---------- COMMON ---------- */
+.container h4, .container h2 {
+  font-weight: 600;
+  color: #333;
+}
+
+.form-select {
+  border-radius: 8px;
+}
+
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table th {
+  background-color: #0d6efd !important;
+  color: #fff;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+/* ---------- ADMIN ONLY ---------- */
+.table-dark th {
+  background-color: #0d6efd !important;
+}
+
+/* ---------- STUDENT PAGE ---------- */
+.student-page .btn-warning {
+  background-color: #ff9800;
+  color: #fff;
+  border: none;
+}
+
+.student-page .btn-warning:hover {
+  background-color: #fb8c00;
+}
+
+.student-page .status-joined {
+  color: green;
+  font-weight: bold;
+}
+
+.student-page .status-pending {
+  color: orange;
+  font-weight: bold;
+}
+
+.student-page .reward-credited {
+  color: teal;
+  font-weight: bold;
+}
+
+.student-page .reward-pending {
+  color: orange;
+  font-weight: bold;
+}
+
+/* STUDENT POPUP */
+.student-page .popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+.student-page .popup-container {
+  position: relative;
+  width: 600px;
+  max-width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.student-page .popup-image {
+  width: 100%;
+  display: block;
+  border-radius: 15px;
+}
+
+.student-page .popup-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.student-page .copy-btn {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  background-color: #ff7f00;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* ---------- TUTOR PAGE ---------- */
+.tutor-page .track-referral-btn {
+  background-color: #ff6a00;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  margin-bottom: 10px;
+}
+
+.tutor-page .track-referral-btn:hover {
+  background-color: #e65c00;
+}
+
+.tutor-page .tutor-status-joined {
+  color: green;
+  font-weight: bold;
+}
+
+.tutor-page .tutor-status-pending {
+  color: #ffa500;
+  font-weight: bold;
+}
+
+.tutor-page .tutor-reward-credited {
+  color: green;
+  font-weight: bold;
+}
+
+.tutor-page .tutor-reward-pending {
+  color: #ffa500;
+  font-weight: bold;
+}
+
+/* TUTOR POPUP */
+.tutor-page .popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+.tutor-page .popup-container {
+  position: relative;
+  width: 600px;
+  max-width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tutor-page .popup-image {
+  width: 100%;
+  display: block;
+  border-radius: 15px;
+}
+
+.tutor-page .popup-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.tutor-page .copy-btn {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  background-color: #ff7f00;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 10;
+}

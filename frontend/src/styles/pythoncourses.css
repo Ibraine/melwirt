@@ -1,0 +1,42 @@
+.course-card {
+  border-radius: 18px;
+  overflow: hidden;
+  transition: 0.4s;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  background: #fff;
+}
+
+.course-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+}
+
+/* IMAGE */
+.course-img-wrapper {
+  height: 220px;
+  overflow: hidden;
+}
+
+.course-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.course-card:hover img {
+  transform: scale(1.08);
+}
+
+/* BUTTON */
+.course-btn {
+  background: linear-gradient(45deg,#0d6efd,#004aad);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 500;
+}
+
+.course-btn:hover {
+  background: linear-gradient(45deg,#004aad,#0d6efd);
+}

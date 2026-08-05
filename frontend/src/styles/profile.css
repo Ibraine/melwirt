@@ -1,0 +1,148 @@
+/* ---------- Page & Main Content Wrapper ---------- */
+.profile-page {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.main-content-wrapper {
+  margin-left: 240px; /* Prevents sidebar overlap */
+  min-height: 100vh;
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-title {
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- Profile Card ---------- */
+.profile-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  padding: 28px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+/* ---------- Avatar Section & Camera Badge ---------- */
+.profile-avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  margin-bottom: 8px;
+}
+
+.avatar-wrapper .profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #0284c7;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.18);
+}
+
+.camera-overlay-btn {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  background: #0284c7;
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.camera-overlay-btn:hover {
+  background: #0369a1;
+  transform: scale(1.08);
+}
+
+.btn-delete-avatar {
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: #dc2626;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-delete-avatar:hover {
+  background: #fee2e2;
+}
+
+/* ---------- Form Inputs ---------- */
+.form-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.custom-input {
+  background-color: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 10px !important;
+  padding: 9px 14px !important;
+  font-size: 14px !important;
+  color: #0f172a !important;
+  transition: all 0.2s ease !important;
+}
+
+.custom-input:focus {
+  background-color: #ffffff !important;
+  border-color: #0284c7 !important;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15) !important;
+  outline: none !important;
+}
+
+/* Update Button */
+.btn-update-profile {
+  background: #0284c7;
+  color: #ffffff;
+  border: none;
+  font-size: 14.5px;
+  font-weight: 600;
+  padding: 11px 36px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.25);
+}
+
+.btn-update-profile:hover {
+  background: #0369a1;
+  box-shadow: 0 5px 15px rgba(2, 132, 199, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-update-profile:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .main-content-wrapper {
+    margin-left: 0;
+  }
+}

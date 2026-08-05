@@ -1,0 +1,360 @@
+/* =====================================
+   GLOBAL COLORS
+===================================== */
+:root {
+  --primary-blue: #0d5ea6;
+  --dark-blue: #0b4d8c;
+  --light-bg: #f2f4f8;
+  --border-light: #e3e6eb;
+  --text-dark: #1a1a1a;
+}
+
+body {
+  background: var(--light-bg);
+  font-family: "Poppins", sans-serif;
+  color: var(--text-dark);
+}
+
+/* =====================================
+   HERO SECTION
+===================================== */
+.premium-hero {
+  background: var(--primary-blue);
+  color: white;
+  padding: 60px 0 90px 0;
+}
+
+.premium-hero h1 {
+  font-size: 38px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.hero-sub {
+  opacity: 0.9;
+  max-width: 600px;
+}
+
+/* =====================================
+   LEFT INFO CARDS (ABOUT / MILESTONE)
+===================================== */
+/* .premium-card {
+  border-radius: 16px;
+  border: 2px solid var(--primary-blue);
+  background: white;
+  padding: 10px;
+} */
+
+
+.premium-card {
+  border-radius: 16px;
+  border: 2px solid transparent;   /* invisible by default */
+  background: white;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+/* Hover pe border show hoga */
+.premium-card:hover {
+  border: 2px solid var(--primary-blue);
+}
+
+
+/* Heading Hover Line (ONLY ON HOVER) */
+.course-detail h4 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px;
+  margin-bottom: 15px;
+}
+
+.course-detail h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--primary-blue);
+  transition: width 0.3s ease;
+}
+
+.course-detail h4:hover::after {
+  width: 100%;
+}
+
+/* =====================================
+   SIDEBAR
+===================================== */
+.sticky-sidebar {
+  position: sticky;
+  top: 90px;
+  margin-top: -120px;
+  z-index: 10;
+}
+
+.course-info-card {
+  border-radius: 18px;
+  border: none;
+  background: white;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+}
+
+/* SQUARE IMAGE (NOT ROUND) */
+.course-info-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+
+/* Sidebar Text */
+.course-info-card h5 {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.course-info-card p {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* Button */
+.book-btn {
+  width: 100%;
+  padding: 13px;
+  border-radius: 8px;
+  background: var(--primary-blue);
+  border: none;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.book-btn:hover {
+  background: var(--dark-blue);
+}
+
+/* =====================================
+   COURSE CURRICULUM
+===================================== */
+.premium-accordion .accordion-item {
+  border: none;
+  margin-bottom: 15px;
+}
+
+.premium-accordion .accordion-button {
+  background: var(--primary-blue);
+  color: white;
+  border-radius: 12px !important;
+  font-weight: 500;
+  box-shadow: none;
+}
+
+.premium-accordion .accordion-button::after {
+  filter: brightness(0) invert(1);
+}
+
+.premium-accordion .accordion-button:not(.collapsed) {
+  background: var(--dark-blue);
+}
+
+/* Inner Content */
+.premium-accordion .accordion-body {
+  background: white;
+  color: #333;
+  border-radius: 0 0 12px 12px;
+  padding: 25px;
+}
+
+.premium-accordion ul {
+  padding-left: 20px;
+}
+
+.premium-accordion li {
+  margin-bottom: 6px;
+}
+
+/* =====================================
+   EXPLORE SECTION
+===================================== */
+.explore-section {
+  padding: 80px 0;
+  background: white;
+  position: relative;
+}
+
+.explore-section h2 {
+  color: var(--primary-blue);
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+/* IMPORTANT FOR EQUAL HEIGHT IN SWIPER */
+.swiper-slide {
+  height: auto !important;
+  display: flex;
+}
+
+.explore-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  border: 1px solid var(--border-light);
+  transition: all 0.3s ease;
+}
+
+.explore-card:hover {
+  border: 1px solid var(--primary-blue);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* IMAGE */
+.explore-image-wrapper img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.explore-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* TITLE */
+.explore-content h5 {
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* DESCRIPTION FIXED HEIGHT */
+.explore-content p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  flex-grow: 1;
+}
+
+/* READ MORE BOTTOM ALIGN */
+.read-more {
+  color: var(--primary-blue);
+  font-weight: 500;
+  margin-top: auto;
+}
+
+/* =====================================
+   SWIPER PAGINATION FIX
+===================================== */
+.swiper {
+  padding-bottom: 60px;   /* space for dots */
+}
+
+.swiper-pagination {
+  bottom: 0px !important;  /* force dots below */
+}
+
+.swiper-pagination-bullet {
+  background: var(--primary-blue) !important;
+  opacity: 0.3;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+
+
+/* =====================================
+   TABLET FIX (≤ 992px)
+===================================== */
+@media (max-width: 992px) {
+
+  /* Sidebar normal flow me aa jaye */
+  .sticky-sidebar {
+    position: static;
+    margin-top: 30px;
+  }
+
+  /* Hero thoda compact */
+  .premium-hero {
+    padding: 50px 0 70px;
+  }
+
+  .premium-hero h1 {
+    font-size: 28px;
+  }
+
+  /* Content overlap reduce */
+  .course-detail {
+    margin-top: -40px;
+  }
+
+}
+
+
+/* =====================================
+   MOBILE FIX (≤ 768px)
+===================================== */
+@media (max-width: 768px) {
+
+  /* Hero center */
+  .premium-hero {
+    text-align: center;
+    padding: 40px 0 60px;
+  }
+
+  .premium-hero h1 {
+    font-size: 22px;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+    margin: 0 auto;
+  }
+
+  /* Content spacing fix */
+  .course-detail {
+    margin-top: -30px;
+  }
+
+  /* Cards compact */
+  .premium-card {
+    padding: 15px;
+  }
+
+  /* Sidebar image adjust */
+  .course-info-card img {
+    height: 180px;
+  }
+
+  /* Sidebar full width */
+  .sticky-sidebar {
+    margin-top: 20px;
+  }
+
+  /* Explore section compact */
+  .explore-section {
+    padding: 50px 0;
+  }
+
+  .explore-image-wrapper img {
+    height: 170px;
+  }
+
+}

@@ -1,0 +1,208 @@
+/* =========================================
+   PURE CSS FIX FOR ASSIGNMENT & CREATE FORM
+   (Fixes Header Cut-off & Cramped Card Inputs)
+========================================= */
+
+/* Main Content Wrapper Offset */
+.d-flex > .flex-grow-1 {
+  margin-left: 240px !important; /* Sidebar offset */
+  padding-top: 105px !important;  /* Header offset */
+  padding-left: 32px !important;
+  padding-right: 32px !important;
+  padding-bottom: 40px !important;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  box-sizing: border-box;
+}
+
+/* Center Align Main Container */
+.assignment-page-body,
+.assignment-container {
+  max-width: 1080px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================
+   CREATE ASSIGNMENT CARD (Fixes Header Overlap & Spacing)
+========================================= */
+.flex-grow-1 .card {
+  margin-top: 35px !important; /* 🔥 Fixes Create Assignment header overlap */
+  background: #ffffff !important;
+  border-radius: 16px !important;
+  border: 1px solid #e2e8f0 !important;
+  padding: 28px !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04) !important;
+  max-width: 900px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  float: none !important;
+}
+
+/* Title inside Create Card */
+.flex-grow-1 .card h3 {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  margin-bottom: 20px !important;
+}
+
+/* Inputs & Form Controls inside Create Card */
+.flex-grow-1 .card .form-control,
+.flex-grow-1 .card select,
+.flex-grow-1 .card input,
+.flex-grow-1 .card textarea {
+  background-color: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+  font-size: 14px !important;
+  color: #0f172a !important;
+  margin-bottom: 16px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  transition: all 0.2s ease !important;
+}
+
+.flex-grow-1 .card .form-control:focus,
+.flex-grow-1 .card select:focus,
+.flex-grow-1 .card input:focus,
+.flex-grow-1 .card textarea:focus {
+  background-color: #ffffff !important;
+  border-color: #0284c7 !important;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15) !important;
+  outline: none !important;
+}
+
+/* Create Assignment Buttons */
+.flex-grow-1 .card .btn-success {
+  background-color: #16a34a !important;
+  border: none !important;
+  color: #ffffff !important;
+  padding: 9px 22px !important;
+  font-weight: 600 !important;
+  font-size: 13.5px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 6px rgba(22, 163, 74, 0.25) !important;
+  transition: all 0.2s ease !important;
+}
+
+.flex-grow-1 .card .btn-success:hover {
+  background-color: #15803d !important;
+  transform: translateY(-1px) !important;
+}
+
+.flex-grow-1 .card .btn-secondary {
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #475569 !important;
+  padding: 9px 20px !important;
+  font-weight: 600 !important;
+  font-size: 13.5px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.flex-grow-1 .card .btn-secondary:hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* =========================================
+   MAIN ASSIGNMENT TABLE STYLING
+========================================= */
+.assignment-page-body table {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.assignment-page-body table thead {
+  background-color: #f8fafc;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.assignment-page-body table th {
+  background-color: #f8fafc !important;
+  color: #475569 !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  padding: 14px 18px !important;
+  border: none !important;
+}
+
+.assignment-page-body table td {
+  padding: 14px 18px !important;
+  font-size: 14px !important;
+  color: #1e293b !important;
+  vertical-align: middle !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+}
+
+.assignment-page-body table tr:hover {
+  background-color: #f8fafc !important;
+}
+
+/* Create Button on List View */
+.btn-primary,
+.assignment-page-body .btn-primary {
+  background-color: #0284c7 !important;
+  border-color: #0284c7 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  padding: 9px 20px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25) !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-primary:hover,
+.assignment-page-body .btn-primary:hover {
+  background-color: #0369a1 !important;
+  border-color: #0369a1 !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-outline-primary {
+  color: #0284c7 !important;
+  border-color: #0284c7 !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 6px 14px !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0284c7 !important;
+  color: #ffffff !important;
+}
+
+/* Status Badges */
+.status-pending {
+  background: #e0f2fe;
+  color: #0284c7;
+  border: 1px solid #bae6fd;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .d-flex > .flex-grow-1 {
+    margin-left: 0 !important;
+    padding-top: 100px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}

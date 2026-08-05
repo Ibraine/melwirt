@@ -1,0 +1,131 @@
+.success-wrapper {
+  background: linear-gradient(145deg, #f0f7ff, #f8fafc);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 105px 20px 40px 20px !important; /* 🔥 Stops top header cut-off */
+  box-sizing: border-box;
+}
+
+.success-card {
+  display: flex;
+  flex-direction: row;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  max-width: 880px;
+  width: 100%;
+  border: 1px solid #e2e8f0;
+}
+
+.success-left {
+  flex: 1;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.phone-img {
+  width: 80%;
+  max-width: 280px;
+  height: auto;
+  display: block;
+}
+
+.success-right {
+  flex: 1;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-logo {
+  height: 42px;
+  margin-bottom: 0.8rem;
+}
+
+.tick-icon {
+  height: 64px;
+  margin: 0.8rem 0;
+}
+
+.success-heading {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0d57a1;
+  margin-bottom: 0.5rem;
+}
+
+.success-time {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ea580c;
+  margin-bottom: 0.8rem;
+}
+
+.meet-box {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.meet-text {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #047857;
+}
+
+.meet-link {
+  color: #0284c7;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.download-text {
+  font-size: 0.9rem;
+  margin: 0.8rem 0;
+  color: #475569;
+}
+
+.app-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.store-btn {
+  height: 44px;
+}
+
+.back-home-btn {
+  background: none;
+  border: none;
+  color: #0d57a1;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .success-wrapper {
+    padding: 90px 14px 24px 14px !important;
+  }
+
+  .success-card {
+    flex-direction: column;
+  }
+
+  .phone-img {
+    max-width: 200px;
+  }
+}

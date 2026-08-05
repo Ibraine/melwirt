@@ -1,0 +1,80 @@
+/* trialbooking.css */
+
+/* Wrapper around the form */
+.trial-booking-container {
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Step heading */
+.trial-booking-container h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* Input fields */
+.trial-booking-container input,
+.trial-booking-container select {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  transition: border-color 0.2s ease;
+}
+
+.trial-booking-container input:focus,
+.trial-booking-container select:focus {
+  border-color: #ff6b00;
+  outline: none;
+}
+
+/* Buttons */
+.trial-booking-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.trial-booking-buttons button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.trial-booking-buttons .next {
+  background-color: #ff6b00;
+  color: white;
+}
+
+.trial-booking-buttons .next:hover {
+  background-color: #e65a00;
+}
+
+.trial-booking-buttons .back {
+  background-color: #e0e0e0;
+}
+
+.trial-booking-buttons .back:hover {
+  background-color: #cfcfcf;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .trial-booking-container {
+    padding: 1rem;
+  }
+}
+
+
