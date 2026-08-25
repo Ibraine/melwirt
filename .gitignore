@@ -9,4 +9,4 @@ backend/.env
 .vscode/
 *.log
 
-melwirt_db/
+melwirt_db/*.swp
