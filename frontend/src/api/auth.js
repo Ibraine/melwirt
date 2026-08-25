@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://127.0.0.1:8000/api/accounts/";
+const API_URL = "https://api.melwirt.com/api/accounts/";
 
 export const registerUser = async (data) => {
   const res = await axios.post(`${API_URL}register/`, data);

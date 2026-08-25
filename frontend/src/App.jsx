@@ -89,7 +89,7 @@
 
 
 
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 
@@ -119,6 +119,18 @@ import PythonCourses from "./pages/PythonCourses";
 import RoboticCourses from "./pages/RoboticCourses";
 import PublicSpeakingCourses from "./pages/PublicSpeakingCourses";
 import CourseDetail from "./pages/CourseDetail";
+import { findCourseByLegacyRoute } from "./utils/slugify";
+
+const LegacyCourseRedirect = () => {
+  const { category, courseId } = useParams();
+  const courseEntry = findCourseByLegacyRoute(category, courseId);
+
+  return courseEntry ? (
+    <Navigate to={`/courses/${courseEntry.slug}`} replace />
+  ) : (
+    <Navigate to="/" replace />
+  );
+};
 
 function App() {
   const { user, loading } = useContext(AuthContext || {});
@@ -148,8 +160,11 @@ function App() {
             <Route path="/courses/robotics" element={<RoboticCourses />} />
             <Route path="/courses/public-speaking" element={<PublicSpeakingCourses />} /> */}
 
-            {/* ✅ FIXED Course Detail Route */}
-            <Route path="/courses/:category/:courseId" element={<CourseDetail />} />
+            <Route path="/courses/:slug" element={<CourseDetail />} />
+            <Route
+              path="/courses/:category/:courseId"
+              element={<LegacyCourseRedirect />}
+            />
 
             {/* Auth */}
             <Route path="/admin/login" element={<AdminLogin />} />

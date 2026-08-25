@@ -21,7 +21,7 @@
 //   useEffect(() => {
 //     const fetchTutors = async () => {
 //       try {
-//         const res = await axios.get("http://127.0.0.1:8000/api/adminpanel/users/?role=tutor", {
+//         const res = await axios.get("https://api.melwirt.com/api/adminpanel/users/?role=tutor", {
 //           headers: { Authorization: `Bearer ${token}` },
 //         });
 //         // Filter only tutors from response
@@ -48,7 +48,7 @@
 //       const payload = new FormData();
 //       for (const key in formData) payload.append(key, formData[key]);
 
-//       const res = await axios.post("http://127.0.0.1:8000/api/courses/", payload, {
+//       const res = await axios.post("https://api.melwirt.com/api/courses/", payload, {
 //         headers: {
 //           "Content-Type": "multipart/form-data",
 //           Authorization: `Bearer ${token}`,
@@ -185,7 +185,7 @@ const AddCourseModal = ({ onClose, onCourseAdded }) => {
   useEffect(() => {
     const fetchTutors = async () => {
       try {
-        const res = await axios.get("http://127.0.0.1:8000/api/adminpanel/users/?role=tutor", {
+        const res = await axios.get("https://api.melwirt.com/api/adminpanel/users/?role=tutor", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const tutorList = res.data.results || res.data; 
@@ -226,7 +226,7 @@ const AddCourseModal = ({ onClose, onCourseAdded }) => {
         }
       }
 
-      const res = await axios.post("http://127.0.0.1:8000/api/courses/", payload, {
+      const res = await axios.post("https://api.melwirt.com/api/courses/", payload, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,

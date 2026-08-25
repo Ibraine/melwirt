@@ -168,11 +168,19 @@ import React from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import courses from "../data/courseData";
+import { getCourseSlug } from "../utils/slugify";
 import "../styles/coursessection.css";
 
 
 
 const PythonCourses = () => {
+  const getCourseDisplay = (title) => {
+    const match = title.match(/^(.*?)(\s*\(Level\s*\d+\))$/i);
+
+    if (!match) return { name: title, level: null };
+
+    return { name: match[1].trim(), level: match[2].trim() };
+  };
 
   const pythonMain = courses.find(
     (course) => course.header === "Python Programming"
@@ -183,38 +191,30 @@ const PythonCourses = () => {
   return (
     <Container className="pb-5">
       <Row className="g-4 justify-content-center">
+        {pythonCourses.map((course) => {
+          const display = getCourseDisplay(course.title);
 
-        {pythonCourses.map((course) => (
-          <Col md={6} lg={4} key={course.id}>
+          return (
+            <Col md={6} lg={4} key={course.id}>
+              <Card className="course-card h-100">
+                <Card.Img variant="top" src={course.image} alt={course.title} />
 
-            <Card className="course-card h-100">
+                <Card.Body>
+                  <h5 className="fw-bold mb-3 course-card-title">
+                    <span className="course-card-name">{display.name}</span>
+                    {display.level && <span className="course-level-badge">{display.level}</span>}
+                  </h5>
 
-              <Card.Img
-                variant="top"
-                src={course.image}
-                alt={course.title}
-              />
+                  <p className="card-text">{course.description}</p>
 
-              <Card.Body>
-
-                <h5 className="fw-bold mb-3">
-                  {course.title}
-                </h5>
-
-                <p className="card-text">
-                  {course.description}
-                </p>
-
-                <Link to={`/courses/python/${course.id}`} className="read-more">Read More →
-           </Link>
-
-              </Card.Body>
-
-            </Card>
-
-          </Col>
-        ))}
-
+                  <Link to={`/courses/${getCourseSlug(course)}`} className="read-more">
+                    Read More →
+                  </Link>
+                </Card.Body>
+              </Card>
+            </Col>
+          );
+        })}
       </Row>
     </Container>
   );

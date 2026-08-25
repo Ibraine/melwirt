@@ -1,4 +1,5 @@
 import React from "react";
+import { Plus } from "lucide-react";
 import "../../styles/filterbar.css";
 
 const FilterBar = ({
@@ -53,7 +54,8 @@ const FilterBar = ({
         <div className="fb-control fb-add">
           {/* ✅ now triggers parent */}
           <button type="button" className="btn-add" onClick={onAddClick}>
-            +
+            <Plus size={19} strokeWidth={2} aria-hidden="true" />
+            <span className="visually-hidden">Add user</span>
           </button>
         </div>
       </div>

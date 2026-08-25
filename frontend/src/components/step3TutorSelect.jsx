@@ -253,7 +253,6 @@
 
 import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
-import LandingHeader from "../components/LandingPage/LandingHeader";
 import "../styles/step3tutor.css";
 
 import { fetchPublicTutors } from "../api/courseAPI";
@@ -261,6 +260,7 @@ import { fetchPublicTutors } from "../api/courseAPI";
 const SelectTutor = ({ nextStep, prevStep, handleChange, formData = {} }) => {
   const [tutors, setTutors] = useState([]);
   const [selectedTutor, setSelectedTutor] = useState(formData.tutor || null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
 
@@ -271,6 +271,7 @@ const SelectTutor = ({ nextStep, prevStep, handleChange, formData = {} }) => {
         return;
       }
 
+      setLoading(true);
       try {
 
         const data = await fetchPublicTutors(formData.course);
@@ -293,6 +294,8 @@ const SelectTutor = ({ nextStep, prevStep, handleChange, formData = {} }) => {
 
         console.error("Tutor load error:", error);
         setTutors([]);
+      } finally {
+        setLoading(false);
 
       }
 
@@ -314,10 +317,7 @@ const SelectTutor = ({ nextStep, prevStep, handleChange, formData = {} }) => {
   };
 
   return (
-    <>
-      <LandingHeader />
-
-      <div className="select-tutor-wrap container my-5">
+    <div className="select-tutor-wrap container my-5">
 
         <h3 className="select-title text-center">
           👨‍🏫 Select Your Tutor 👨‍🏫
@@ -329,7 +329,13 @@ const SelectTutor = ({ nextStep, prevStep, handleChange, formData = {} }) => {
           </div>
         )}
 
-        <div className="tutor-cards mt-4">
+        <div className="tutor-cards mt-4" aria-busy={loading}>
+
+          {loading && (
+            <div className="demo-inline-loading">
+              <span className="spinner-border spinner-border-sm" /> Loading tutors...
+            </div>
+          )}
 
           {tutors.map((tutor) => {
 
@@ -455,8 +461,7 @@ const SelectTutor = ({ nextStep, prevStep, handleChange, formData = {} }) => {
 
         </div>
 
-      </div>
-    </>
+    </div>
   );
 };
 

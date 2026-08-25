@@ -1,10 +1,11 @@
 .table-container {
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
   margin-top: 1.5rem;
-  padding-bottom: 1rem;
+  padding: 8px 0 12px;
   width: 100%;
 }
 
@@ -22,40 +23,40 @@
 .data-table th,
 .data-table td {
   text-align: center;
-  padding: 14px 12px;
-  font-size: 15px;
-  border-bottom: 1px solid #e0e6ef;
-  color: #333;
+  padding: 16px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
 }
 
 .data-table th {
   font-weight: 600;
-  color: #1f2d5c;
+  color: var(--color-text);
 }
 
 .data-table tr:hover {
-  background-color: #f9fafc;
+  background-color: var(--color-surface-muted);
   transition: background-color 0.2s ease;
 }
 
 /* ✅ Status + Verification Badges */
 .dt-badge {
   display: inline-block;
-  padding: 6px 14px;
-  border-radius: 25px;
+  padding: 5px 10px;
+  border-radius: 999px;
   font-size: 13px;
   font-weight: 500;
   text-transform: capitalize;
 }
 
 .dt-badge.success {
-  background: #e8f5e9;
-  color: #27ae60;
+  background: var(--color-success-soft);
+  color: var(--color-success);
 }
 
 .dt-badge.danger {
-  background: #fdeaea;
-  color: #eb5757;
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
 }
 
 .dt-badge.warning {
@@ -77,12 +78,15 @@
 
 .icon-btn {
   border: none;
-  background: #f3f4f6;
-  color: #4b5563;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-muted);
+  color: var(--color-text-secondary);
   cursor: pointer;
   font-size: 16px;
   padding: 6px;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   transition: all 0.2s ease;
 }
 
@@ -108,5 +112,62 @@
 @media (max-width: 900px) {
   .table-container {
     overflow-x: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .users-data-table {
+    padding: 12px;
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .users-data-table .data-table,
+  .users-data-table .data-table tbody,
+  .users-data-table .data-table tr,
+  .users-data-table .data-table td {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .users-data-table .data-table thead {
+    display: none;
+  }
+
+  .users-data-table .data-table tr {
+    margin-bottom: 14px;
+    padding: 10px 14px;
+    background: #fff;
+    border: 1px solid #e6ebf2;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  }
+
+  .users-data-table .data-table td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 0;
+    text-align: right;
+  }
+
+  .users-data-table .data-table td::before {
+    content: attr(data-label);
+    flex: 0 0 auto;
+    color: #64748b;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .users-data-table .data-table td:last-child {
+    border-bottom: 0;
+  }
+
+  .users-data-table .action-buttons {
+    justify-content: flex-end;
   }
 }

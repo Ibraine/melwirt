@@ -4,11 +4,7 @@ import Header from "../../components/Header";
 import WelcomeBox from "../../components/WelcomeBox";
 import DashboardCard from "../../components/DashboardCard";
 import { getDashboardStats } from "../../api/adminPanelAPI";
-
-import activeUserImg from "../../assets/active user.png";
-import enrollStudentImg from "../../assets/enroll student.png";
-import totalTeacherImg from "../../assets/total teacher.png";
-import totalStudentImg from "../../assets/total student.png";
+import { BookOpen, GraduationCap, UserCheck, Users } from "lucide-react";
 
 import "../../styles/dashboard.css";
 
@@ -51,27 +47,32 @@ const Dashboard = () => {
             <DashboardCard
               title="Active Users"
               value={stats.active_users}
-              image={activeUserImg}
+              icon={UserCheck}
+              tone="green"
             />
             <DashboardCard
               title="Total Users"
               value={stats.total_users}
-              image={totalStudentImg}
+              icon={Users}
+              tone="blue"
             />
             <DashboardCard
               title="Total Students"
               value={stats.total_students}
-              image={enrollStudentImg}
+              icon={GraduationCap}
+              tone="orange"
             />
             <DashboardCard
               title="Total Tutors"
               value={stats.total_tutors}
-              image={totalTeacherImg}
+              icon={GraduationCap}
+              tone="violet"
             />
             <DashboardCard
               title="Total Bookings"
               value={stats.total_bookings}
-              image={totalStudentImg}
+              icon={BookOpen}
+              tone="blue"
             />
           </div>
         </div>

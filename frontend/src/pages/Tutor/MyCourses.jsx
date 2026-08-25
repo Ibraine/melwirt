@@ -140,7 +140,7 @@ const MyCourses = () => {
     const img = course?.image || course?.image_url;
     if (!img) return defaultCourseImg;
     if (img.startsWith("http://") || img.startsWith("https://")) return img;
-    return `http://127.0.0.1:8000${img.startsWith("/") ? "" : "/"}${img}`;
+    return `https://api.melwirt.com${img.startsWith("/") ? "" : "/"}${img}`;
   };
 
   // 🔹 Smart Image Helper (Student Profile Avatar)
@@ -148,7 +148,7 @@ const MyCourses = () => {
     const img = student?.profile_pic || student?.avatar || student?.profile_image;
     if (!img) return defaultAvatar;
     if (img.startsWith("http://") || img.startsWith("https://")) return img;
-    return `http://127.0.0.1:8000${img.startsWith("/") ? "" : "/"}${img}`;
+    return `https://api.melwirt.com${img.startsWith("/") ? "" : "/"}${img}`;
   };
 
   return (

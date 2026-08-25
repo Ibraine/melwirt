@@ -187,45 +187,52 @@
 // export default CourseDetail;
 
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Container, Row, Col, Accordion, Card } from "react-bootstrap";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
+import { BarChart3, Clock3, Laptop2 } from "lucide-react";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import courses from "../data/courseData";
+import { findCourseBySlug, getCourseSlug } from "../utils/slugify";
 import Header from "../components/LandingPage/LandingHeader";
 import Footer from "../components/LandingPage/Footer";
 import "../styles/coursedetail.css";
 
 const CourseDetail = () => {
-  const { category, courseId } = useParams();
+  const { slug } = useParams();
+  const detailRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [courseId]);
+  }, [slug]);
 
-  let mainCourse = null;
+  useEffect(() => {
+    const detail = detailRef.current;
+    if (!detail) return undefined;
 
-  if (category === "python")
-    mainCourse = courses.find((c) => c.header === "Python Programming");
+    const revealObserver = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+      }),
+      { threshold: 0.12 }
+    );
 
-  if (category === "robotics")
-    mainCourse = courses.find((c) => c.header === "Robotics Programming");
+    detail.querySelectorAll(".detail-reveal").forEach((element) => revealObserver.observe(element));
 
-  if (category === "speaking")
-    mainCourse = courses.find((c) => c.header === "Speaking");
+    return () => revealObserver.disconnect();
+  }, [slug]);
 
-  const subCourse = mainCourse?.subcources?.find(
-    (c) => c.id === Number(courseId)
-  );
+  const courseEntry = findCourseBySlug(slug);
+  const mainCourse = courseEntry?.mainCourse;
+  const subCourse = courseEntry?.course;
 
   // 🔹 FIX: Filter out the CURRENT course so it doesn't duplicate in "Explore Related Courses"
   const relatedCourses =
-    mainCourse?.subcources?.filter((c) => c.id !== Number(courseId)) || [];
+    mainCourse?.subcources?.filter((c) => c.id !== subCourse.id) || [];
 
   if (!subCourse) return null;
 
@@ -234,10 +241,11 @@ const CourseDetail = () => {
       <Header />
 
       {/* HERO */}
+      <main ref={detailRef} className="course-detail-page">
       <div className="premium-hero">
         <Container>
           <Row className="align-items-start">
-            <Col lg={8}>
+            <Col lg={8} className="hero-content detail-reveal is-visible">
               <h1>{subCourse.title}</h1>
               <p className="hero-sub">{subCourse.description}</p>
             </Col>
@@ -256,7 +264,7 @@ const CourseDetail = () => {
             {/* LEFT CONTENT */}
             <Col lg={8}>
               {subCourse.about && (
-                <Card className="premium-card mb-4">
+                <Card className="premium-card mb-4 detail-reveal">
                   <Card.Body>
                     <h4>About Course</h4>
                     <p>{subCourse.about}</p>
@@ -265,7 +273,7 @@ const CourseDetail = () => {
               )}
 
               {subCourse.milestone && (
-                <Card className="premium-card mb-4">
+                <Card className="premium-card mb-4 detail-reveal">
                   <Card.Body>
                     <h4>Milestone Achieved</h4>
                     <p>{subCourse.milestone}</p>
@@ -273,9 +281,9 @@ const CourseDetail = () => {
                 </Card>
               )}
 
-              <h4 className="mb-4">Course Curriculum</h4>
+              <h4 className="mb-4 detail-reveal">Course Curriculum</h4>
 
-              <Accordion>
+              <Accordion className="detail-reveal">
                 {subCourse.modules?.map((module, index) => (
                   <Accordion.Item
                     eventKey={index.toString()}
@@ -305,14 +313,16 @@ const CourseDetail = () => {
 
             {/* RIGHT SIDEBAR */}
             <Col lg={4}>
-              <div className="sticky-sidebar">
+              <div className="sticky-sidebar detail-reveal">
                 <Card className="course-info-card">
                   <img src={subCourse.image} alt={subCourse.title} />
                   <Card.Body>
                     <h5>{subCourse.title}</h5>
-                    <p><b>Duration:</b> {subCourse.duration}</p>
-                    <p><b>Mode:</b> Live Classes</p>
-                    <p><b>Level:</b> Beginner</p>
+                    <div className="course-meta">
+                      <p><Clock3 aria-hidden="true" /><span><b>Duration</b>{subCourse.duration}</span></p>
+                      <p><Laptop2 aria-hidden="true" /><span><b>Mode</b>Live Classes</span></p>
+                      <p><BarChart3 aria-hidden="true" /><span><b>Level</b>Beginner</span></p>
+                    </div>
                   </Card.Body>
                 </Card>
               </div>
@@ -324,16 +334,16 @@ const CourseDetail = () => {
 
       {/* EXPLORE RELATED COURSES SECTION */}
       {relatedCourses.length > 0 && (
-        <div className="explore-section">
+        <section className="explore-section">
           <Container>
-            <h2 className="text-center mb-5">
+            <h2 className="text-center mb-5 detail-reveal">
               Explore Related Courses
             </h2>
 
             <Swiper
               modules={[Autoplay, Pagination]}
               spaceBetween={30}
-              slidesPerView={4}
+              slidesPerView={3}
               loop={relatedCourses.length > 3}
               speed={800}
               autoplay={{
@@ -345,14 +355,14 @@ const CourseDetail = () => {
                 0: { slidesPerView: 1 },
                 768: { slidesPerView: 2 },
                 992: { slidesPerView: 3 },
-                1400: { slidesPerView: 4 },
+                1400: { slidesPerView: 3 },
               }}
             >
               {relatedCourses.map((course) => (
                 <SwiperSlide key={course.id}>
                   <Link
-                    to={`/courses/${category}/${course.id}`}
-                    className="explore-card"
+                    to={`/courses/${getCourseSlug(course)}`}
+                    className="explore-card detail-reveal"
                   >
                     <div className="explore-image-wrapper">
                       <img src={course.image} alt={course.title} />
@@ -362,7 +372,7 @@ const CourseDetail = () => {
                       <h5>{course.title}</h5>
                       <p>{course.description}</p>
                       <span className="read-more">
-                        Read More →
+                        Read More <span className="read-more-arrow" aria-hidden="true">→</span>
                       </span>
                     </div>
                   </Link>
@@ -370,9 +380,10 @@ const CourseDetail = () => {
               ))}
             </Swiper>
           </Container>
-        </div>
+        </section>
       )}
 
+      </main>
       <Footer />
     </>
   );

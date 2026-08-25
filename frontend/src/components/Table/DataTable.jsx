@@ -6,9 +6,9 @@ const Badge = ({ type, children }) => {
   return <span className={`dt-badge ${type}`}>{children}</span>;
 };
 
-const DataTable = ({ columns, data, onEdit, onDelete }) => {
+const DataTable = ({ columns, data, onEdit, onDelete, className = "" }) => {
   return (
-    <div className="table-container">
+    <div className={`table-container ${className}`}>
       <table className="data-table" role="table" aria-label="Teacher list table">
         <thead>
           <tr>
@@ -26,8 +26,8 @@ const DataTable = ({ columns, data, onEdit, onDelete }) => {
             data.map((row, idx) => (
               <tr key={idx}>
                 {columns.map((col, cIdx) => {
-                  if (col.render) return <td key={cIdx}>{col.render(row)}</td>;
-                  return <td key={cIdx}>{row[col.accessor]}</td>;
+                  if (col.render) return <td key={cIdx} data-label={col.header}>{col.render(row)}</td>;
+                  return <td key={cIdx} data-label={col.header}>{row[col.accessor]}</td>;
                 })}
               </tr>
             ))

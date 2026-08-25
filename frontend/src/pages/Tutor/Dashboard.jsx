@@ -9,7 +9,7 @@ import enrollStudentImg from "../../assets/enroll student.png";
 
 import { fetchTutorDashboard } from "../../api/tutorDashboardAPI";
 
-const BASE_URL = "http://127.0.0.1:8000";
+const BASE_URL = "https://api.melwirt.com";
 
 const TutorDashboard = () => {
   const [stats, setStats] = useState(null);

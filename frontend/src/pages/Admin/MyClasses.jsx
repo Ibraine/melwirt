@@ -263,6 +263,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 // Default Fallback Image
 import defaultCourseImg from "../../assets/robotics automation.png";
+import { Plus, X } from "lucide-react";
 
 const AdminMyClasses = () => {
   const [mainTab, setMainTab] = useState("regular");
@@ -328,7 +329,7 @@ const AdminMyClasses = () => {
       return imgPath;
     }
 
-    return `http://127.0.0.1:8000${imgPath.startsWith("/") ? "" : "/"}${imgPath}`;
+    return `https://api.melwirt.com${imgPath.startsWith("/") ? "" : "/"}${imgPath}`;
   };
 
   return (
@@ -370,7 +371,7 @@ const AdminMyClasses = () => {
                 className="add-slot-btn"
                 onClick={() => setShowAddSlot(true)}
               >
-                + Add Slot
+                <Plus size={16} strokeWidth={2} /> Add Slot
               </button>
             </div>
           </div>
@@ -397,7 +398,7 @@ const AdminMyClasses = () => {
                 className="reset-date-btn"
                 onClick={() => setSelectedDate(null)}
               >
-                Clear Date Filter ✕
+                <X size={15} strokeWidth={2} /> Clear Date Filter
               </button>
             )}
           </div>

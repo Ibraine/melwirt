@@ -169,6 +169,7 @@ import Header from "../../components/Header";
 import axiosInstance from "../../api/axiosConfig";
 import { toast } from "react-toastify";
 import "../../styles/demobooking.css";
+import { ArrowRight, CalendarDays, Clock3 } from "lucide-react";
 
 export default function UpdateSchedule() {
   const { bookingId } = useParams();
@@ -309,14 +310,14 @@ export default function UpdateSchedule() {
                 <div className="col-md-6">
                   <div className="p-3 bg-light rounded-3 border">
                     <small className="text-muted d-block fw-semibold mb-1">Current Scheduled Date</small>
-                    <span className="fw-bold text-dark">📅 {booking.date || "—"}</span>
+                    <span className="fw-bold text-dark"><CalendarDays size={15} /> {booking.date || "—"}</span>
                   </div>
                 </div>
 
                 <div className="col-md-6">
                   <div className="p-3 bg-light rounded-3 border">
                     <small className="text-muted d-block fw-semibold mb-1">Current Scheduled Time</small>
-                    <span className="fw-bold text-dark">🕒 {booking.time || booking.student_time || "—"}</span>
+                    <span className="fw-bold text-dark"><Clock3 size={15} /> {booking.time || booking.student_time || "—"}</span>
                   </div>
                 </div>
               </div>
@@ -336,9 +337,9 @@ export default function UpdateSchedule() {
                 <div key={s.id} className="col-md-6 mb-3">
                   <div className="card p-3 shadow-sm border-0 rounded-3 h-100 d-flex flex-column justify-content-between">
                     <div>
-                      <div className="fw-bold text-dark mb-1">📅 Date: {s.date}</div>
+                      <div className="fw-bold text-dark mb-1"><CalendarDays size={15} /> Date: {s.date}</div>
                       <div className="text-muted small mb-3">
-                        🕒 Time: {s.start_time || s.time || `${s.start_time} - ${s.end_time}`}
+                        <Clock3 size={15} /> Time: {s.start_time || s.time || `${s.start_time} - ${s.end_time}`}
                       </div>
                     </div>
 
@@ -348,7 +349,7 @@ export default function UpdateSchedule() {
                       onClick={() => handleChooseSlot(s.id)}
                       type="button"
                     >
-                      {actionLoading ? "Saving Slot..." : "Choose this slot →"}
+                      {actionLoading ? "Saving Slot..." : <>Choose this slot <ArrowRight size={15} /></>}
                     </button>
                   </div>
                 </div>

@@ -201,6 +201,7 @@ import React from "react";
 import { Container, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import courses from "../data/courseData";
+import { getCourseSlug } from "../utils/slugify";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -208,6 +209,13 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 const RoboticsCourses = () => {
+  const getCourseDisplay = (title) => {
+    const match = title.match(/^(.*?)(\s*\(Level\s*\d+\))$/i);
+
+    if (!match) return { name: title, level: null };
+
+    return { name: match[1].trim(), level: match[2].trim() };
+  };
 
   const roboticsMain = courses.find(
     (course) => course.header === "Robotics Programming"
@@ -217,7 +225,6 @@ const RoboticsCourses = () => {
 
   return (
     <Container className="pb-5">
-
       <Swiper
         slidesPerView={3}
         spaceBetween={30}
@@ -232,42 +239,31 @@ const RoboticsCourses = () => {
           1024:{slidesPerView:3}
         }}
       >
+        {roboticsCourses.map((course) => {
+          const display = getCourseDisplay(course.title);
 
-        {roboticsCourses.map((course) => (
+          return (
+            <SwiperSlide key={course.id}>
+              <Card className="course-card h-100">
+                <Card.Img variant="top" src={course.image} alt={course.title} />
 
-          <SwiperSlide key={course.id}>
+                <Card.Body>
+                  <h5 className="fw-bold mb-3 course-card-title">
+                    <span className="course-card-name">{display.name}</span>
+                    {display.level && <span className="course-level-badge">{display.level}</span>}
+                  </h5>
 
-            <Card className="course-card h-100">
+                  <p className="card-text">{course.description}</p>
 
-              <Card.Img
-                variant="top"
-                src={course.image}
-                alt={course.title}
-              />
-
-              <Card.Body>
-
-                <h5 className="fw-bold mb-3">
-                  {course.title}
-                </h5>
-
-                <p className="card-text">
-                  {course.description}
-                </p>
-
-                <Link to={`/courses/robotics/${course.id}`} className="read-more">Read More →
-                </Link>
-
-              </Card.Body>
-
-            </Card>
-
-          </SwiperSlide>
-
-        ))}
-
+                  <Link to={`/courses/${getCourseSlug(course)}`} className="read-more">
+                    Read More →
+                  </Link>
+                </Card.Body>
+              </Card>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
-
     </Container>
   );
 };

@@ -1,0 +1,175 @@
+/* Shared visual layer for authenticated admin screens. */
+.admin-page,
+.courses-page,
+.demo-booking-page,
+.coupons-page,
+.dashboard-layout {
+  min-height: 100vh;
+  background: var(--color-page);
+  color: var(--color-text);
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.admin-page > .flex-grow-1,
+.courses-page .main-content-wrapper,
+.demo-booking-page .main-content-wrapper,
+.coupons-page .content-area,
+.dashboard-layout .main-content {
+  min-width: 0;
+  background: var(--color-page);
+}
+
+.admin-page .container,
+.courses-page .container,
+.demo-booking-page .container,
+.coupons-page .container,
+.dashboard-layout .my-classes-container {
+  width: min(100% - 64px, 1280px);
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 32px;
+  padding-bottom: 40px;
+}
+
+.admin-page h2,
+.admin-page h3,
+.admin-page h4,
+.courses-page h2,
+.courses-page h3,
+.courses-page h4,
+.demo-booking-page h2,
+.demo-booking-page h3,
+.demo-booking-page h4,
+.coupons-page h2,
+.coupons-page h3,
+.coupons-page h4,
+.dashboard-layout h2,
+.dashboard-layout h3,
+.dashboard-layout h4 {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.admin-page .form-control,
+.admin-page .form-select,
+.courses-page .filter-bar-custom input,
+.courses-page .filter-bar-custom select,
+.coupons-page .form-control,
+.coupons-page .form-select {
+  min-height: 42px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: none;
+}
+
+.admin-page .form-control:focus,
+.admin-page .form-select:focus,
+.courses-page .filter-bar-custom input:focus,
+.courses-page .filter-bar-custom select:focus,
+.coupons-page .form-control:focus,
+.coupons-page .form-select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(21, 94, 239, 0.12);
+}
+
+.admin-page .btn-primary,
+.courses-page .btn-add-course,
+.coupons-page .btn-primary,
+.demo-booking-page .btn-primary {
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.admin-page .btn-primary:hover,
+.courses-page .btn-add-course:hover,
+.coupons-page .btn-primary:hover,
+.demo-booking-page .btn-primary:hover {
+  background: var(--color-primary-dark);
+  color: #fff;
+}
+
+.admin-page .table,
+.courses-page .course-card-custom,
+.demo-booking-page .premium-booking-card,
+.coupons-page form,
+.coupons-page .table-responsive {
+  border-color: var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.admin-page .table,
+.coupons-page .table {
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.admin-page .table thead th,
+.coupons-page .table thead th {
+  border: 0;
+  background: #eef4ff !important;
+  color: #24416f !important;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.admin-page .table tbody tr:hover,
+.coupons-page .table tbody tr:hover {
+  background: var(--color-surface-muted);
+}
+
+.admin-page .badge,
+.coupons-page .badge,
+.admin-page .status-tag,
+.demo-booking-page .status-tag {
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+@media (max-width: 991px) {
+  .admin-page > .flex-grow-1,
+  .courses-page .main-content-wrapper,
+  .demo-booking-page .main-content-wrapper,
+  .coupons-page .content-area,
+  .dashboard-layout .main-content {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .admin-page .container,
+  .courses-page .container,
+  .demo-booking-page .container,
+  .coupons-page .container,
+  .dashboard-layout .my-classes-container {
+    width: calc(100% - 32px);
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .admin-page .table,
+  .coupons-page .table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .courses-page .filter-bar-custom,
+  .demo-booking-page .premium-tabs-container {
+    width: 100%;
+  }
+
+  .courses-page .filter-bar-custom > *,
+  .demo-booking-page .tab-btn {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+}

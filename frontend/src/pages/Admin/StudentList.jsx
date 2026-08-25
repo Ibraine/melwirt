@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FiEdit, FiTrash2 } from "react-icons/fi";
+import { Edit3, RefreshCw, Trash2 } from "lucide-react";
 import DataTable from "../../components/Table/DataTable";
 import FilterBar from "../../components/Filters/FilterBar";
 import PaginationControl from "../../components/Pagination/PaginationControl";
@@ -94,18 +94,18 @@ const StudentList = () => {
             onClick={() => setSelectedStudent(r)}
             title="Edit"
           >
-            <FiEdit />
+            <Edit3 size={16} strokeWidth={1.8} />
           </button>
 
           <button className="icon-btn toggle" onClick={() => handleToggle(r.id)}>
-            🔁
+            <RefreshCw size={16} strokeWidth={1.8} />
           </button>
 
           <button
             className="icon-btn delete"
             onClick={() => handleDelete(r.id)}
           >
-            <FiTrash2 />
+            <Trash2 size={16} strokeWidth={1.8} />
           </button>
         </div>
       ),
@@ -144,7 +144,7 @@ const StudentList = () => {
           </div>
         ) : (
           <>
-            <DataTable columns={columns} data={students} />
+            <DataTable columns={columns} data={students} className="users-data-table" />
             <PaginationControl
               currentPage={currentPage}
               totalPages={totalPages}

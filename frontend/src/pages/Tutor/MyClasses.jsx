@@ -313,7 +313,7 @@ const TutorMyClasses = () => {
       return imgPath;
     }
 
-    return `http://127.0.0.1:8000${imgPath.startsWith("/") ? "" : "/"}${imgPath}`;
+    return `https://api.melwirt.com${imgPath.startsWith("/") ? "" : "/"}${imgPath}`;
   };
 
   return (

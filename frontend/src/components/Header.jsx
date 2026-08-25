@@ -161,7 +161,7 @@
 //         if (data?.profile_image) {
 //           let fullImg = data.profile_image;
 //           if (!fullImg.startsWith("http://") && !fullImg.startsWith("https://")) {
-//             fullImg = `http://127.0.0.1:8000${fullImg.startsWith("/") ? "" : "/"}${fullImg}`;
+//             fullImg = `https://api.melwirt.com${fullImg.startsWith("/") ? "" : "/"}${fullImg}`;
 //           }
 //           localStorage.setItem("user_profile_img", fullImg);
 //           setHeaderPic(fullImg);
@@ -262,7 +262,7 @@ const Header = ({ role: customRole }) => {
         if (data?.profile_image) {
           let fullImg = data.profile_image;
           if (!fullImg.startsWith("http://") && !fullImg.startsWith("https://")) {
-            fullImg = `http://127.0.0.1:8000${fullImg.startsWith("/") ? "" : "/"}${fullImg}`;
+            fullImg = `https://api.melwirt.com${fullImg.startsWith("/") ? "" : "/"}${fullImg}`;
           }
           localStorage.setItem("user_profile_img", fullImg);
           setHeaderPic(fullImg);

@@ -1,7 +1,7 @@
 // src/api/adminPanelAPI.js
 import axios from "axios";
 
-const API_BASE = "http://127.0.0.1:8000/api/adminpanel/";
+const API_BASE = "https://api.melwirt.com/api/adminpanel/";
 
 const API = axios.create({
   baseURL: API_BASE,

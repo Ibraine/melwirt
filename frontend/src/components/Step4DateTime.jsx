@@ -468,8 +468,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/step4datetime.css";
-import LandingHeader from "../components/LandingPage/LandingHeader";
-import slotDateImg from "../assets/slotdate.png";
+import { AlertCircle, ArrowLeft, ArrowRight, CalendarDays } from "lucide-react";
 import { DateTime } from "luxon";
 import ct from "countries-and-timezones";
 
@@ -595,24 +594,22 @@ const Step4DateTime = ({ nextStep, prevStep, handleChange, formData = {} }) => {
   const currentDaySlots = slotsByDay[selectedDayIndex] || [];
 
   return (
-    <>
-      <LandingHeader />
-
-      <div className="container-fluid d-flex justify-content-center">
+    <div className="container-fluid d-flex justify-content-center">
         <div className="demo-card shadow-lg" style={{ maxWidth: 880 }}>
-          <div className="headline">📅 Choose Date & Time 📅</div>
+          <div className="headline">
+            <span className="step-heading-icon"><CalendarDays size={20} /></span>
+            Choose Date &amp; Time
+          </div>
 
-          <div className="row g-0">
-            <div className="col-md-6 left-img d-flex align-items-center justify-content-center">
-              <img src={slotDateImg} alt="Select Slot" className="img-fluid" />
-            </div>
-
-            <div className="col-md-6 form-side p-4">
+          <div className="step-form-panel">
+            <div className="form-side p-4">
               <h5 className="text-center fw-bold mb-3">
                 Select your preferred time slot
               </h5>
+              <p className="step-helper-text text-center">Pick a day and time that works best for you.</p>
 
               {/* Date Horizontal Scroll */}
+              <div className="date-strip-shell">
               <div className="date-scroll d-flex gap-2 overflow-auto mb-3 pb-2">
                 {days.map((d, i) => (
                   <button
@@ -633,6 +630,7 @@ const Step4DateTime = ({ nextStep, prevStep, handleChange, formData = {} }) => {
                   </button>
                 ))}
               </div>
+              </div>
 
               {/* Time Slots Grid or Empty Message */}
               {loading ? (
@@ -643,7 +641,7 @@ const Step4DateTime = ({ nextStep, prevStep, handleChange, formData = {} }) => {
                 /* 🔥 NO SLOTS AVAILABLE MESSAGE */
                 <div className="text-center py-4 px-2 my-2 border rounded bg-light">
                   <p className="fw-semibold text-danger m-0" style={{ fontSize: "14px" }}>
-                    ⚠️ No slots available for this date.
+                    <AlertCircle size={18} aria-hidden="true" /> No slots available for this date.
                   </p>
                   <small className="text-muted">Please select another date above.</small>
                 </div>
@@ -672,7 +670,7 @@ const Step4DateTime = ({ nextStep, prevStep, handleChange, formData = {} }) => {
 
               <div className="d-flex justify-content-between mt-4">
                 <button type="button" className="btn btn-secondary px-4" onClick={prevStep}>
-                  ⬅ Back
+                  <ArrowLeft size={16} aria-hidden="true" /> Back
                 </button>
                 <button
                   type="button"
@@ -680,15 +678,14 @@ const Step4DateTime = ({ nextStep, prevStep, handleChange, formData = {} }) => {
                   onClick={handleNext}
                   disabled={!selectedTimeSlotId}
                 >
-                  Next ➡
+                  Next <ArrowRight size={16} aria-hidden="true" />
                 </button>
               </div>
 
             </div>
           </div>
         </div>
-      </div>
-    </>
+    </div>
   );
 };
 

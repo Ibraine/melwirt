@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { RefreshCw, Trash2, X } from "lucide-react";
 import Sidebar from "../../components/Sidebar";
 import Header from "../../components/Header";
 
@@ -195,13 +196,13 @@ async function loadCoupons() {
                 to="/admin/coupons"
                 className="btn btn-sm btn-outline-secondary me-2"
               >
-                Refresh
+                <RefreshCw size={15} /> Refresh
               </Link>
               <button
                 className="btn btn-sm btn-outline-primary"
                 onClick={() => setForm(emptyForm)}
               >
-                Clear
+                <X size={15} /> Clear
               </button>
             </div>
           </div>
@@ -384,7 +385,7 @@ async function loadCoupons() {
                             className="btn btn-sm btn-outline-danger"
                             onClick={() => handleDelete(c.id)}
                           >
-                            Delete
+                            <Trash2 size={15} /> Delete
                           </button>
                         </td>
                       </tr>

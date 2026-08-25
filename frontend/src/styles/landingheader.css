@@ -1,185 +1,215 @@
-/* ===============================
-   LANDING NAVBAR FINAL
-================================ */
-
 .landing-navbar {
-  background-color: #ffffff;
-  font-family: "Segoe UI", sans-serif;
-  transition: all 0.3s ease-in-out;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-
-  /* ✅ MAIN HEIGHT CONTROL */
-  min-height: 62px !important;
-  padding-top: 4px !important;
-  padding-bottom: 4px !important;
+  min-height: 72px;
+  padding: 8px 0;
+  background: rgba(255, 255, 255, 0.96);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  transition: background-color 220ms ease, box-shadow 220ms ease, backdrop-filter 220ms ease;
 }
 
-
-/* ===============================
-   BOOTSTRAP SPACE FIX
-================================ */
+.landing-navbar.is-scrolled {
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: 0 8px 24px rgba(23, 32, 51, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
 
 .landing-navbar .container {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+  display: flex;
   align-items: center;
+  padding: 0 24px;
 }
 
 .landing-navbar .navbar-brand {
-  margin: 0 !important;
-  padding: 0 !important;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  margin: 0;
+  padding: 0;
+  transition: transform 180ms ease;
 }
 
+.landing-navbar .navbar-brand:hover {
+  transform: scale(1.02);
+}
 
-/* ===============================
-   LOGO SIZE
-================================ */
-
-.landing-navbar img {
-  height: 40px !important;
+.landing-navbar .navbar-brand img {
   width: auto;
+  height: 42px;
 }
 
+.landing-navbar .navbar-toggler {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  padding: 9px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: none;
+}
 
-/* ===============================
-   NAV LINKS
-================================ */
+.landing-navbar .navbar-toggler span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-text);
+  transform-origin: center;
+  transition: transform 220ms ease, opacity 180ms ease;
+}
+
+.landing-navbar .navbar-toggler[aria-expanded="true"] span:first-child {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.landing-navbar .navbar-toggler[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.landing-navbar .navbar-toggler[aria-expanded="true"] span:last-child {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.landing-navbar .navbar-collapse {
+  justify-content: flex-end;
+}
+
+.landing-navbar .navbar-nav {
+  align-items: center;
+  gap: 28px !important;
+}
 
 .landing-navbar .nav-link {
-  color: #333333;
-  font-weight: 500;
-  font-size: 15px;
-  cursor: pointer;
-  padding: 6px 12px;
-  text-decoration: none;
-  display: flex;
+  position: relative;
+  display: inline-flex;
   align-items: center;
-  transition: all 0.2s ease-in-out;
+  padding: 10px 0;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 180ms ease, opacity 180ms ease;
+}
+
+.landing-navbar .nav-link::after {
+  position: absolute;
+  right: 50%;
+  bottom: 3px;
+  left: 50%;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-primary);
+  content: "";
+  opacity: 0;
+  transform: scaleX(0);
+  transition: transform 220ms ease, opacity 180ms ease;
 }
 
 .landing-navbar .nav-link:hover,
 .landing-navbar .nav-link.active-link {
-  color: #0056ff;
-  border-bottom: 2px solid #0056ff;
+  color: var(--color-primary);
 }
 
+.landing-navbar .nav-link:hover::after,
+.landing-navbar .nav-link.active-link::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
 
-/* ===============================
-   DEMO BUTTON
-================================ */
+.landing-navbar .nav-link.active-link {
+  animation: nav-link-fade 220ms ease both;
+}
+
+@keyframes nav-link-fade {
+  from { opacity: 0.55; }
+  to { opacity: 1; }
+}
 
 .demo-btn {
-  background-color: #0050ff;
-  color: #fff;
-  border-radius: 25px;
-  padding: 6px 18px;
-  font-weight: 500;
-  border: none;
-  font-size: 14px;
-  height: 36px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  margin-left: 10px;
+  min-height: 40px;
+  margin-left: 4px;
+  padding: 9px 18px;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
 
 .demo-btn:hover {
-  background-color: #003ed3;
-  color: white;
+  background: var(--color-primary-dark);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(21, 94, 239, 0.22);
+  transform: translateY(-2px);
 }
 
-
-
-
-/* ✅ Tablet Fix */
 @media (max-width: 991px) {
-
-  .landing-navbar {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .landing-navbar img {
-    height: 36px !important;
-  }
-
-  .landing-navbar .nav-link {
-    font-size: 14px;
+  .landing-navbar .navbar-brand img {
+    height: 38px;
   }
 }
 
-
-/* ✅ Mobile Fix */
-
+@media (min-width: 768px) {
+  .landing-navbar .navbar-toggler {
+    display: none;
+  }
+}
 
 @media (max-width: 767px) {
-
   .landing-navbar {
-    min-height: 56px !important;
+    min-height: 64px;
   }
 
-  /* Toggle button align */
-  .navbar-toggler {
-    border: none;
-    outline: none !important;
-    box-shadow: none !important;
+  .landing-navbar .container {
+    padding: 0 16px;
   }
 
-  /* Collapse menu styling */
+  .landing-navbar .navbar-toggler {
+    display: inline-flex;
+  }
+
   .landing-navbar .navbar-collapse {
-    background: #ffffff;
     margin-top: 10px;
-    padding: 15px 10px;
-    border-radius: 10px;
+    padding: 8px 16px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+    animation: mobile-nav-enter 220ms ease both;
   }
 
-  /* Nav links mobile */
+  .landing-navbar .navbar-nav {
+    align-items: stretch;
+    gap: 2px !important;
+  }
+
   .landing-navbar .nav-link {
     width: 100%;
-    padding: 10px 0;
     justify-content: center;
-    border-bottom: none !important;
+    padding: 12px 4px;
   }
 
-  .landing-navbar .nav-link.active-link {
-    border-bottom: none;
-    color: #0056ff;
-  }
-
-  /* Stack center */
-  .landing-navbar .navbar-nav {
-    gap: 10px !important;
+  .landing-navbar .nav-link::after {
+    right: auto;
+    bottom: 5px;
+    left: 4px;
+    width: 28px;
+    transform-origin: left;
   }
 }
 
-.navbar-toggler{
-    padding:4px 8px;
-}
-
-.navbar-toggler:focus{
-    box-shadow:none;
-}
-
-.navbar-toggler-icon{
-    width:20px;
-    height:20px;
-}
-
-.landing-navbar img{
-    height:34px!important;
-}
-
-.landing-navbar .navbar-collapse{
-    margin-top:12px;
-    border-radius:12px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-.landing-navbar .nav-link{
-    padding:12px 0;
-    font-size:15px;
+@keyframes mobile-nav-enter {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
 }

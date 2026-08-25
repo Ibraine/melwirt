@@ -8,6 +8,7 @@ import {
   sendMessage,
 } from "../../api/chatsAPI";
 import "../../styles/chats.css";
+import { Send } from "lucide-react";
 
 const Chats = () => {
   const [sessions, setSessions] = useState([]);
@@ -152,7 +153,7 @@ const Chats = () => {
                   onKeyDown={(e) => e.key === "Enter" && handleSend()}
                 />
                 <button className="btn btn-primary" onClick={handleSend}>
-                  Send
+                  Send <Send size={15} />
                 </button>
               </div>
             </div>

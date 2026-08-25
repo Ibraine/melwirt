@@ -72,8 +72,7 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/step2course.css";
-import LandingHeader from "../components/LandingPage/LandingHeader";
-import selectCourseImg from "../assets/selectcourse.png";
+import { ArrowLeft, ArrowRight, GraduationCap } from "lucide-react";
 
 import { fetchPublicCourses } from "../api/courseAPI";
 
@@ -81,13 +80,19 @@ const Step2Course = ({ nextStep, prevStep, handleChange }) => {
 
   const [selectedCourse, setSelectedCourse] = useState("");
   const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // LOAD COURSES FROM BACKEND
   useEffect(() => {
 
     const loadCourses = async () => {
-      const data = await fetchPublicCourses();
-      setCourses(data);
+      setLoading(true);
+      try {
+        const data = await fetchPublicCourses();
+        setCourses(data);
+      } finally {
+        setLoading(false);
+      }
     };
 
     loadCourses();
@@ -106,29 +111,26 @@ const Step2Course = ({ nextStep, prevStep, handleChange }) => {
   };
 
   return (
-    <>
-      <LandingHeader />
-
-      <div className="container-fluid d-flex justify-content-center">
+    <div className="container-fluid d-flex justify-content-center">
         <div className="demo-card animated-card shadow-lg">
 
-          <div className="headline">🎓 Select a Course 🎓</div>
+          <div className="headline">
+            <span className="step-heading-icon"><GraduationCap size={20} /></span>
+            Select a Course
+          </div>
 
-          <div className="row g-0">
-
-            <div className="col-md-6 left-img">
-              <img src={selectCourseImg} alt="Select Course" />
-            </div>
-
-            <div className="col-md-6 form-side d-flex align-items-center justify-content-center p-4">
+          <div className="step-form-panel">
+            <div className="form-side d-flex align-items-center justify-content-center p-4">
 
               <div className="w-100 text-center">
 
                 <h5 className="mb-3 fw-bold">Choose your course</h5>
+                <p className="step-helper-text">Choose the course your child is interested in.</p>
 
                 <select
                   className="form-select mb-4"
                   value={selectedCourse}
+                  disabled={loading}
                   onChange={(e) => setSelectedCourse(e.target.value)}
                 >
                   <option value="">-- Choose a course --</option>
@@ -147,14 +149,15 @@ const Step2Course = ({ nextStep, prevStep, handleChange }) => {
                     onClick={prevStep}
                     className="btn btn-secondary px-4"
                   >
-                    ⬅ Back
+                    <ArrowLeft size={16} aria-hidden="true" /> Back
                   </button>
 
                   <button
                     onClick={handleNext}
                     className="btn btn-primary px-4"
+                    disabled={loading}
                   >
-                    Next ➡
+                    {loading ? <><span className="spinner-border spinner-border-sm me-2" />Loading...</> : <>Next <ArrowRight size={16} aria-hidden="true" /></>}
                   </button>
 
                 </div>
@@ -166,8 +169,7 @@ const Step2Course = ({ nextStep, prevStep, handleChange }) => {
           </div>
 
         </div>
-      </div>
-    </>
+    </div>
   );
 };
 

@@ -1,15 +1,15 @@
 /* ================= ADMIN MAIN LAYOUT ================= */
 .admin-layout{
   min-height:100vh;
-  background:#f7f9fb;
-  font-family:"Inter","Poppins",sans-serif;
+  background:var(--color-page);
+  font-family:"Plus Jakarta Sans",sans-serif;
 }
 
 .admin-content{
-  margin-left:260px;          /* sidebar ke baad start */
-  margin-top:70px;            /* top navbar ke neeche */
-  padding:30px;
-  max-width:calc(100% - 260px);
+  margin-left:240px;
+  margin-top:70px;
+  padding:32px;
+  max-width:calc(100% - 240px);
   box-sizing:border-box;
 }
 
@@ -25,24 +25,27 @@
 
 .page-header h2{
   margin:0;
-  font-size:30px;
-  font-weight:700;
-  color:#1e293b;
+  font-size:24px;
+  font-weight:600;
+  color:var(--color-text);
 }
 
 .page-sub{
   margin-top:4px;
   font-size:14px;
-  color:#6b7280;
+  color:var(--color-text-muted);
 }
 
 /* ================= BUTTON ================= */
 .btn-primary{
-  background:#1565c0;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--color-primary);
   color:#fff;
   border:none;
-  padding:10px 20px;
-  border-radius:30px;
+  padding:10px 16px;
+  border-radius:var(--radius-md);
   font-weight:600;
   cursor:pointer;
 }

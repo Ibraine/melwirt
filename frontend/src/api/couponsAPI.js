@@ -1,7 +1,7 @@
 import axiosInstance from "./axiosConfig"; // <— using global axios with token auto-attached
 
 const API_BASE = "/api/adminpanel/"; 
-// axiosConfig already adds http://127.0.0.1:8000
+// axiosConfig already adds https://api.melwirt.com
 
 // ===================== COUPONS =====================
 

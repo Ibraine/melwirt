@@ -5,6 +5,7 @@ import { fetchEnrollments, deleteEnrollment, updateEnrollment } from "../../api/
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AddEnrollmentModal from "./AddEnrollmentModal";
+import { Plus, RefreshCw, Trash2 } from "lucide-react";
 
 const Enrollments = () => {
   const [enrollments, setEnrollments] = useState([]);
@@ -64,7 +65,7 @@ const Enrollments = () => {
         <div className="container mt-4">
           <div className="d-flex justify-content-between align-items-center mb-3">
             <h4>Enrollments</h4>
-            <button className="btn btn-primary" onClick={() => setShowModal(true)}>+ Add Enrollment</button>
+            <button className="btn btn-primary" onClick={() => setShowModal(true)}><Plus size={16} /> Add Enrollment</button>
           </div>
 
           {/* Filters */}
@@ -131,8 +132,8 @@ const Enrollments = () => {
                     </td>
                     <td>{new Date(enroll.created_at).toLocaleString()}</td>
                     <td>
-                      <button className="btn btn-sm btn-success me-2" onClick={() => handleToggleStatus(enroll.id, enroll.is_active)}>Toggle</button>
-                      <button className="btn btn-sm btn-danger" onClick={() => handleDelete(enroll.id)}>Delete</button>
+                      <button className="btn btn-sm btn-success me-2" onClick={() => handleToggleStatus(enroll.id, enroll.is_active)}><RefreshCw size={14} /> Toggle</button>
+                      <button className="btn btn-sm btn-danger" onClick={() => handleDelete(enroll.id)}><Trash2 size={14} /> Delete</button>
                     </td>
                   </tr>
                 ))}

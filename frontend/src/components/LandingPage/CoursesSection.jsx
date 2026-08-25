@@ -326,40 +326,56 @@
 
 
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PythonCourses from "../../pages/PythonCourses";
 import RoboticCourses from "../../pages/RoboticCourses";
 import PublicSpeakingCourses from "../../pages/PublicSpeakingCourses";
-import background3 from "../../assets/background3.png";
+import "../../styles/coursessection.css";
 
 const CoursesSection = () => {
-
+  const sectionRef = useRef(null);
   const [activeTab, setActiveTab] = useState("robotics");
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const currentSection = sectionRef.current;
+
+    if (!currentSection) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(currentSection);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(currentSection);
+
+    return () => observer.unobserve(currentSection);
+  }, []);
 
   return (
     <section
-      id="courses"   // ✅ YE IMPORTANT FIX HAI
-      className="courses-section py-5"
-      style={{
-        backgroundImage: `url(${background3})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      ref={sectionRef}
+      id="courses"
+      className={`courses-section ${isVisible ? "is-visible" : ""}`}
     >
-
-      <div className="text-center mb-5">
-
+      <div className="courses-header">
         <p className="courses-subtitle">Our Courses</p>
-        <h2 className="fw-bold text-white mt-2">
+        <h2>
           Shaping Young Minds for <br />
           <span className="highlight-orange">a Brighter Future</span>
         </h2>
 
-        <div className="tabs-container mt-4">
-
+        <div className="tabs-container">
           <button
             onClick={() => setActiveTab("robotics")}
             className={`tab-btn ${activeTab === "robotics" ? "active" : ""}`}
+            aria-pressed={activeTab === "robotics"}
+            type="button"
           >
             Robotics
           </button>
@@ -367,6 +383,8 @@ const CoursesSection = () => {
           <button
             onClick={() => setActiveTab("python")}
             className={`tab-btn ${activeTab === "python" ? "active" : ""}`}
+            aria-pressed={activeTab === "python"}
+            type="button"
           >
             Python
           </button>
@@ -374,18 +392,19 @@ const CoursesSection = () => {
           <button
             onClick={() => setActiveTab("speaking")}
             className={`tab-btn ${activeTab === "speaking" ? "active" : ""}`}
+            aria-pressed={activeTab === "speaking"}
+            type="button"
           >
             Public Speaking
           </button>
-
         </div>
-
       </div>
 
-      {activeTab === "python" && <PythonCourses />}
-      {activeTab === "robotics" && <RoboticCourses />}
-      {activeTab === "speaking" && <PublicSpeakingCourses />}
-
+      <div className="courses-content" key={activeTab}>
+        {activeTab === "python" && <PythonCourses />}
+        {activeTab === "robotics" && <RoboticCourses />}
+        {activeTab === "speaking" && <PublicSpeakingCourses />}
+      </div>
     </section>
   );
 };

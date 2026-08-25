@@ -4,17 +4,19 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  padding: 18px 22px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(20, 32, 56, 0.06);
+  padding: 20px 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
   margin-bottom: 20px;
+  box-sizing: border-box;
 }
 
 .fb-title {
   margin: 0;
   font-size: 1.1rem;
-  color: #1f2d3d;
+  color: var(--color-text);
   font-weight: 600;
 }
 
@@ -23,6 +25,13 @@
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
+  flex: 1 1 600px;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.fb-control {
+  min-width: 0;
 }
 
 .fb-control input,
@@ -31,10 +40,12 @@
   border-radius: 8px;
   border: 1px solid #e3e8ef;
   background: #fbfdff;
-  min-width: 220px;
-  font-size: 0.95rem;
-  color: #263238;
+  min-width: 210px;
+  font-size: 14px;
+  color: var(--color-text);
   transition: box-shadow .15s ease, border-color .15s ease;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .fb-control input::placeholder {
@@ -52,12 +63,15 @@
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  background: #ff8a00;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
   color: #fff;
   border: none;
   font-size: 20px;
   cursor: pointer;
-  box-shadow: 0 6px 16px rgba(255,138,0,0.18);
+  box-shadow: var(--shadow-sm);
 }
 
 .fb-add .btn-add:hover {
@@ -78,6 +92,18 @@
     align-items: stretch;
   }
   .fb-controls {
-    justify-content: space-between;
+    justify-content: stretch;
+    width: 100%;
+  }
+
+  .fb-control,
+  .fb-control input,
+  .fb-control select {
+    width: 100%;
+  }
+
+  .fb-add {
+    display: flex;
+    justify-content: flex-end;
   }
 }

@@ -22,7 +22,7 @@
 //   useEffect(() => {
 //     const fetchTutors = async () => {
 //       try {
-//         const res = await axios.get("http://127.0.0.1:8000/api/tutors/");
+//         const res = await axios.get("https://api.melwirt.com/api/tutors/");
 //         setTutors(res.data);
 //       } catch (error) {
 //         console.error("Failed to load tutors:", error);
@@ -51,7 +51,7 @@
 //         payload.append(key, formData[key]);
 //       }
 
-//       const res = await axios.post("http://127.0.0.1:8000/api/courses/", payload, {
+//       const res = await axios.post("https://api.melwirt.com/api/courses/", payload, {
 //         headers: {
 //           "Content-Type": "multipart/form-data",
 //           Authorization: `Bearer ${token}`,
@@ -200,7 +200,7 @@ const AddCourse = () => {
   useEffect(() => {
     const fetchTutors = async () => {
       try {
-        const res = await axios.get("http://127.0.0.1:8000/api/tutors/");
+        const res = await axios.get("https://api.melwirt.com/api/tutors/");
         setTutors(res.data);
       } catch (error) {
         console.error("Failed to load tutors:", error);
@@ -240,7 +240,7 @@ const AddCourse = () => {
         }
       }
 
-      const res = await axios.post("http://127.0.0.1:8000/api/courses/", payload, {
+      const res = await axios.post("https://api.melwirt.com/api/courses/", payload, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,

@@ -31,7 +31,7 @@
 //   // 🔹 Load courses
 //   const loadCourses = async () => {
 //     try {
-//       const res = await axios.get("http://127.0.0.1:8000/api/courses/", {
+//       const res = await axios.get("https://api.melwirt.com/api/courses/", {
 //         headers: { Authorization: `Bearer ${token}` },
 //       });
 
@@ -56,7 +56,7 @@
 //   const loadTutors = async () => {
 //     try {
 //       const res = await axios.get(
-//         "http://127.0.0.1:8000/api/adminpanel/users/?role=tutor",
+//         "https://api.melwirt.com/api/adminpanel/users/?role=tutor",
 //         { headers: { Authorization: `Bearer ${token}` } }
 //       );
 
@@ -126,7 +126,7 @@
 //     e.stopPropagation();
 //     try {
 //       await axios.patch(
-//         `http://127.0.0.1:8000/api/courses/${course.id}/`,
+//         `https://api.melwirt.com/api/courses/${course.id}/`,
 //         { is_active: !course.is_active },
 //         { headers: { Authorization: `Bearer ${token}` } }
 //       );
@@ -212,7 +212,7 @@
 //                 <img
 //                   src={
 //                     course.image_url
-//                       ? `http://127.0.0.1:8000${course.image_url}`
+//                       ? `https://api.melwirt.com${course.image_url}`
 //                       : defaultCourseImg
 //                   }
 //                   alt={getCourseTitle(course)}
@@ -323,7 +323,7 @@ const Courses = () => {
   // 🔹 Load courses
   const loadCourses = async () => {
     try {
-      const res = await axios.get("http://127.0.0.1:8000/api/courses/", {
+      const res = await axios.get("https://api.melwirt.com/api/courses/", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -338,7 +338,7 @@ const Courses = () => {
   const loadTutors = async () => {
     try {
       const res = await axios.get(
-        "http://127.0.0.1:8000/api/adminpanel/users/?role=tutor",
+        "https://api.melwirt.com/api/adminpanel/users/?role=tutor",
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -358,7 +358,7 @@ const Courses = () => {
   const loadStudents = async () => {
     try {
       const res = await axios.get(
-        "http://127.0.0.1:8000/api/adminpanel/users/?role=student",
+        "https://api.melwirt.com/api/adminpanel/users/?role=student",
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -402,7 +402,7 @@ const Courses = () => {
       return imgPath;
     }
     
-    return `http://127.0.0.1:8000${imgPath.startsWith("/") ? "" : "/"}${imgPath}`;
+    return `https://api.melwirt.com${imgPath.startsWith("/") ? "" : "/"}${imgPath}`;
   };
 
   // 🔹 Filter change
@@ -442,7 +442,7 @@ const Courses = () => {
     e.stopPropagation();
     try {
       await axios.patch(
-        `http://127.0.0.1:8000/api/courses/${course.id}/`,
+        `https://api.melwirt.com/api/courses/${course.id}/`,
         { is_active: !course.is_active },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -513,7 +513,7 @@ const Courses = () => {
             <input
               type="text"
               name="search"
-              placeholder="🔍 Search course..."
+              placeholder="Search course..."
               value={filters.search}
               onChange={handleFilterChange}
             />

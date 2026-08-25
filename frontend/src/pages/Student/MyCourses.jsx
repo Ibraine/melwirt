@@ -165,7 +165,7 @@ const StudentMyCourses = () => {
   const getCourseImage = (img) => {
     if (!img) return defaultCourseImg;
     if (img.startsWith("http://") || img.startsWith("https://")) return img;
-    return `http://127.0.0.1:8000${img.startsWith("/") ? "" : "/"}${img}`;
+    return `https://api.melwirt.com${img.startsWith("/") ? "" : "/"}${img}`;
   };
 
   return (

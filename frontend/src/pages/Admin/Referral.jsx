@@ -7,6 +7,7 @@ import {
   deleteReferral,
 } from "../../api/referralsAPI";
 import "../../styles/referral.css";
+import { ArrowLeftRight, Plus, Trash2 } from "lucide-react";
 
 const AdminReferral = () => {
   const [referrals, setReferrals] = useState([]);
@@ -105,7 +106,7 @@ const AdminReferral = () => {
           <div className="d-flex justify-content-between align-items-center mb-3">
             <h4>Track Referrals</h4>
             <button className="btn btn-primary" onClick={() => setShowModal(true)}>
-              Create Referral
+              <Plus size={16} /> Create Referral
             </button>
           </div>
 
@@ -191,13 +192,13 @@ const AdminReferral = () => {
                         className="btn btn-sm btn-success me-2"
                         onClick={() => handleToggleReward(r.id, r.reward_given)}
                       >
-                        Toggle Reward
+                        <ArrowLeftRight size={14} /> Toggle Reward
                       </button>
                       <button
                         className="btn btn-sm btn-danger"
                         onClick={() => handleDeleteReferral(r.id)}
                       >
-                        Delete
+                        <Trash2 size={14} /> Delete
                       </button>
                     </td>
                   </tr>

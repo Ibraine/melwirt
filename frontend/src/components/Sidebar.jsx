@@ -819,60 +819,61 @@
 
 
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import {
+  BookOpen,
+  CalendarDays,
+  ClipboardCheck,
+  GraduationCap,
+  LayoutDashboard,
+  MessageCircle,
+  Percent,
+  UserCircle,
+  Users,
+} from "lucide-react";
 import "../styles/sidebar.css";
 
 // Icons
-import dashboardIcon from "../assets/dashboard.png";
-import usersIcon from "../assets/user.png";
-import coursesIcon from "../assets/courses sidebar.png";
-import demoBookingIcon from "../assets/demo booking.png";
-import couponsIcon from "../assets/coupons.png";
-import referralIcon from "../assets/referral.png";
-import chatsIcon from "../assets/chats.png";
-import profileIcon from "../assets/profile.png";
-import assignmentIcon from "../assets/assignment.png";
-import myClassesIcon from "../assets/my classes.png";
 
 const menuItems = {
   admin: [
-    { name: "Dashboard", path: "/admin/dashboard", icon: dashboardIcon },
+    { name: "Dashboard", path: "/admin/dashboard", icon: LayoutDashboard },
     {
       name: "Users",
-      icon: usersIcon,
+      icon: Users,
       children: [
         { name: "All Users", path: "/admin/users" },
         { name: "Teachers", path: "/admin/teachers" },
         { name: "Students", path: "/admin/students" },
       ],
     },
-    { name: "Courses", path: "/admin/courses", icon: coursesIcon },
-    { name: "Demo Booking", path: "/admin/demo-booking", icon: demoBookingIcon },
-    { name: "Coupons", path: "/admin/coupons", icon: couponsIcon },
-    { name: "Referral", path: "/admin/referral", icon: referralIcon },
-    { name: "My Classes", path: "/admin/my-classes", icon: coursesIcon },
-    { name: "Chats", path: "/admin/chats", icon: chatsIcon },
-    { name: "Profile", path: "/admin/profile", icon: profileIcon },
-    { name: "Enrollment", path: "/admin/enrollment", icon: myClassesIcon }, 
+    { name: "Courses", path: "/admin/courses", icon: BookOpen },
+    { name: "Demo Booking", path: "/admin/demo-booking", icon: CalendarDays },
+    { name: "Coupons", path: "/admin/coupons", icon: Percent },
+    { name: "Referral", path: "/admin/referral", icon: Users },
+    { name: "My Classes", path: "/admin/my-classes", icon: GraduationCap },
+    { name: "Chats", path: "/admin/chats", icon: MessageCircle },
+    { name: "Profile", path: "/admin/profile", icon: UserCircle },
+    { name: "Enrollment", path: "/admin/enrollment", icon: ClipboardCheck },
   ],
   student: [
-    { name: "Dashboard", path: "/student/dashboard", icon: dashboardIcon },
-    { name: "My Classes", path: "/student/my-classes", icon: myClassesIcon },
-    { name: "My Courses", path: "/student/my-courses", icon: myClassesIcon },
-    { name: "Assignment", path: "/student/assignment", icon: assignmentIcon },
-    { name: "Referral", path: "/student/referral", icon: referralIcon },
-    { name: "Chats", path: "/student/chats", icon: chatsIcon },
-    { name: "Profile", path: "/student/profile", icon: profileIcon },
+    { name: "Dashboard", path: "/student/dashboard", icon: LayoutDashboard },
+    { name: "My Classes", path: "/student/my-classes", icon: GraduationCap },
+    { name: "My Courses", path: "/student/my-courses", icon: BookOpen },
+    { name: "Assignment", path: "/student/assignment", icon: ClipboardCheck },
+    { name: "Referral", path: "/student/referral", icon: Users },
+    { name: "Chats", path: "/student/chats", icon: MessageCircle },
+    { name: "Profile", path: "/student/profile", icon: UserCircle },
   ],
   tutor: [
-    { name: "Dashboard", path: "/tutor/dashboard", icon: dashboardIcon },
-    { name: "My Classes", path: "/tutor/my-classes", icon: coursesIcon },
-    { name: "My Courses", path: "/tutor/my-courses", icon: myClassesIcon },
-    { name: "Assignment", path: "/tutor/assignment", icon: assignmentIcon },
-    { name: "Referral", path: "/tutor/referral", icon: referralIcon },
-    { name: "Chats", path: "/tutor/chats", icon: chatsIcon },
-    { name: "Profile", path: "/tutor/profile", icon: profileIcon },
+    { name: "Dashboard", path: "/tutor/dashboard", icon: LayoutDashboard },
+    { name: "My Classes", path: "/tutor/my-classes", icon: GraduationCap },
+    { name: "My Courses", path: "/tutor/my-courses", icon: BookOpen },
+    { name: "Assignment", path: "/tutor/assignment", icon: ClipboardCheck },
+    { name: "Referral", path: "/tutor/referral", icon: Users },
+    { name: "Chats", path: "/tutor/chats", icon: MessageCircle },
+    { name: "Profile", path: "/tutor/profile", icon: UserCircle },
   ],
 };
 
@@ -881,6 +882,7 @@ const Sidebar = ({ role: customRole, userName = "User" }) => {
   const navigate = useNavigate();
   const [openDropdown, setOpenDropdown] = useState(null);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   // 🔹 SMART ROLE DETECTION: Automatically detects role from URL path
   const currentRole = location.pathname.startsWith("/tutor")
@@ -904,11 +906,47 @@ const Sidebar = ({ role: customRole, userName = "User" }) => {
     window.location.href = "/";
   };
 
+  useEffect(() => {
+    setIsMobileOpen(false);
+  }, [location.pathname]);
+
   return (
     <>
-      <div className="sidebar">
+      <button
+        type="button"
+        className="sidebar-menu-toggle"
+        aria-label="Open navigation menu"
+        aria-expanded={isMobileOpen}
+        onClick={() => setIsMobileOpen(true)}
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+
+      {isMobileOpen && (
+        <button
+          type="button"
+          className="sidebar-overlay"
+          aria-label="Close navigation menu"
+          onClick={() => setIsMobileOpen(false)}
+        />
+      )}
+
+      <div className={`sidebar ${isMobileOpen ? "sidebar-open" : ""}`}>
+        <button
+          type="button"
+          className="sidebar-close"
+          aria-label="Close navigation menu"
+          onClick={() => setIsMobileOpen(false)}
+        >
+          &times;
+        </button>
         <div className="sidebar-header">
           <div className="profile-info">
+            <span className="sidebar-avatar" aria-hidden="true">
+              {userName.trim().charAt(0).toUpperCase()}
+            </span>
             <p className="admin-name">
               {userName}
               <br />
@@ -926,7 +964,7 @@ const Sidebar = ({ role: customRole, userName = "User" }) => {
                     className="dropdown-toggle"
                     onClick={() => toggleDropdown(item.name)}
                   >
-                    <img src={item.icon} alt={item.name} className="sidebar-icon" />
+                    <item.icon size={20} strokeWidth={1.8} className="sidebar-icon" aria-hidden="true" />
                     <span>{item.name}</span>
                   </div>
                   <ul
@@ -939,7 +977,7 @@ const Sidebar = ({ role: customRole, userName = "User" }) => {
                           location.pathname.startsWith(sub.path) ? "active" : ""
                         }
                       >
-                        <Link to={sub.path}>{sub.name}</Link>
+                        <Link to={sub.path} onClick={() => setIsMobileOpen(false)}>{sub.name}</Link>
                       </li>
                     ))}
                   </ul>
@@ -948,8 +986,9 @@ const Sidebar = ({ role: customRole, userName = "User" }) => {
                 <Link
                   to={item.path}
                   className={location.pathname.startsWith(item.path) ? "active" : ""}
+                  onClick={() => setIsMobileOpen(false)}
                 >
-                  <img src={item.icon} alt={item.name} className="sidebar-icon" />
+                  <item.icon size={20} strokeWidth={1.8} className="sidebar-icon" aria-hidden="true" />
                   <span>{item.name}</span>
                 </Link>
               )}

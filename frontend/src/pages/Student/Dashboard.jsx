@@ -6,7 +6,7 @@
 
 // import { fetchStudentDashboard } from "../../api/studentDashboardAPI";
 
-// const BASE_URL = "http://127.0.0.1:8000";
+// const BASE_URL = "https://api.melwirt.com";
 
 // const StudentDashboard = () => {
 //   const [data, setData] = useState(null);
@@ -139,7 +139,7 @@
 
 // import { fetchStudentDashboard } from "../../api/studentDashboardAPI";
 
-// const BASE_URL = "http://127.0.0.1:8000";
+// const BASE_URL = "https://api.melwirt.com";
 
 // const StudentDashboard = () => {
 //   const [data, setData] = useState(null);
@@ -309,7 +309,7 @@
 // // Default Fallback Image
 // import defaultCourseImg from "../../assets/robotics automation.png";
 
-// const BASE_URL = "http://127.0.0.1:8000";
+// const BASE_URL = "https://api.melwirt.com";
 
 // const StudentDashboard = () => {
 //   const [data, setData] = useState(null);
@@ -506,7 +506,7 @@
 // // Default Fallback Image
 // import defaultCourseImg from "../../assets/robotics automation.png";
 
-// const BASE_URL = "http://127.0.0.1:8000";
+// const BASE_URL = "https://api.melwirt.com";
 
 // const StudentDashboard = () => {
 //   const [data, setData] = useState(null);
@@ -757,7 +757,7 @@ import hoursSpentImg from "../../assets/hours spent.png";
 // Default Fallback Image
 import defaultCourseImg from "../../assets/robotics automation.png";
 
-const BASE_URL = "http://127.0.0.1:8000";
+const BASE_URL = "https://api.melwirt.com";
 
 const StudentDashboard = () => {
   const [data, setData] = useState(null);

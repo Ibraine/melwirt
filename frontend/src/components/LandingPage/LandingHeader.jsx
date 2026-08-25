@@ -1,12 +1,27 @@
-import React from "react";
-import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import { Link } from "react-scroll";
 import "../../styles/landingheader.css";
 
 const LandingHeader = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 12);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <Navbar expand="lg" className="landing-navbar shadow-sm sticky-top">
+    <Navbar
+      expand="md"
+      expanded={isMenuOpen}
+      onToggle={setIsMenuOpen}
+      className={`landing-navbar sticky-top ${isScrolled ? "is-scrolled" : ""} ${isMenuOpen ? "menu-open" : ""}`}
+    >
       <Container>
         <Navbar.Brand href="/">
           <img
@@ -16,7 +31,15 @@ const LandingHeader = () => {
             className="d-inline-block align-top"
           />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbar-nav" />
+        <Navbar.Toggle
+          aria-controls="navbar-nav"
+          aria-label="Toggle navigation"
+          aria-expanded={isMenuOpen}
+        >
+          <span />
+          <span />
+          <span />
+        </Navbar.Toggle>
         <Navbar.Collapse id="navbar-nav" className="justify-content-end">
           <Nav className="align-items-center gap-4">
             <Link

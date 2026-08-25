@@ -38,16 +38,16 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-0qv=dd09!800u%-b+4fe0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ["*"]
 ALLOWED_HOSTS = [
-     'nsurti.pythonanywhere.com',
-    '127.0.0.1',
-    'localhost'
+    "api.melwirt.com",
+    "learn.melwirt.com",
+    "127.0.0.1",
+    "localhost",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    # "https://successful-mindfulness-staging.up.railway.app"
-     "https://nsurti.pythonanywhere.com",
+    "https://api.melwirt.com",
+    "https://learn.melwirt.com",
 ]
 
 
@@ -125,8 +125,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'melwirt_db',
-        'USER': 'root',
-        'PASSWORD': 'nikhilsurti@123',  
+        'USER': 'melwirt',
+        'PASSWORD': 'Melwirt@123',  
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTIONS': {

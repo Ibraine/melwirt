@@ -152,8 +152,7 @@ import React, { useState } from "react";
 import axiosInstance from "../api/axiosConfig";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/step5email.css";
-import LandingHeader from "../components/LandingPage/LandingHeader";
-import emailImg from "../assets/email.png";
+import { ArrowLeft, CalendarDays, CheckCircle2, Clock3, Globe2, Mail, Phone, UserRound } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Step5Email = ({ prevStep, handleChange, formData }) => {
@@ -212,26 +211,22 @@ const Step5Email = ({ prevStep, handleChange, formData }) => {
   };
 
   return (
-    <>
-      <LandingHeader />
-
-      <div className="container-fluid d-flex justify-content-center">
+    <div className="container-fluid d-flex justify-content-center">
 
         <div className="demo-card animated-card shadow-lg">
 
-          <div className="headline">📧 Enter Your Email</div>
+          <div className="headline">
+            <span className="step-heading-icon"><Mail size={20} /></span>
+            Enter Your Email
+          </div>
 
-          <div className="row g-0">
-
-            <div className="col-md-6 left-img">
-              <img src={emailImg} alt="Email" />
-            </div>
-
-            <div className="col-md-6 form-side d-flex align-items-center justify-content-center p-4">
+          <div className="step-form-panel">
+            <div className="form-side d-flex align-items-center justify-content-center p-4">
 
               <div className="w-100 text-center">
 
                 <h5 className="mb-3 fw-bold">We will send confirmation</h5>
+                <p className="step-helper-text">Enter your email to receive the demo booking details.</p>
 
                 <form onSubmit={handleNext}>
 
@@ -252,7 +247,7 @@ const Step5Email = ({ prevStep, handleChange, formData }) => {
                       className="btn btn-secondary px-4"
                       disabled={loading}
                     >
-                      ⬅ Back
+                      <ArrowLeft size={16} aria-hidden="true" /> Back
                     </button>
 
                     <button
@@ -266,7 +261,7 @@ const Step5Email = ({ prevStep, handleChange, formData }) => {
                           Submitting...
                         </>
                       ) : (
-                        "Confirm ✅"
+                        <>Confirm Booking <CheckCircle2 size={16} aria-hidden="true" /></>
                       )}
                     </button>
 
@@ -278,12 +273,12 @@ const Step5Email = ({ prevStep, handleChange, formData }) => {
 
                   <h6>Booking Summary:</h6>
 
-                  <p><strong>Phone:</strong> {formData.phone}</p>
-                  <p><strong>Course:</strong> {formData.course}</p>
-                  <p><strong>Tutor:</strong> {formData.tutor?.name || formData.tutor}</p>
-                  <p><strong>Date:</strong> {formData.date}</p>
-                  <p><strong>Time:</strong> {formData.time}</p>
-                  <p><strong>Country:</strong> {formData.country}</p>
+                  <p><Phone size={15} aria-hidden="true" /><strong>Phone</strong><span>{formData.phone}</span></p>
+                  <p><Mail size={15} aria-hidden="true" /><strong>Course</strong><span>{formData.course}</span></p>
+                  <p><UserRound size={15} aria-hidden="true" /><strong>Tutor</strong><span>{formData.tutor?.name || formData.tutor}</span></p>
+                  <p><CalendarDays size={15} aria-hidden="true" /><strong>Date</strong><span>{formData.date}</span></p>
+                  <p><Clock3 size={15} aria-hidden="true" /><strong>Time</strong><span>{formData.time}</span></p>
+                  <p><Globe2 size={15} aria-hidden="true" /><strong>Country</strong><span>{formData.country}</span></p>
 
                 </div>
 
@@ -295,8 +290,7 @@ const Step5Email = ({ prevStep, handleChange, formData }) => {
 
         </div>
 
-      </div>
-    </>
+    </div>
   );
 };
 

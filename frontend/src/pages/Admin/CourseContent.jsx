@@ -12,7 +12,7 @@ const EnrollStudentsForm = ({ courseId, onEnrolled }) => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/students/", {
+      .get("https://api.melwirt.com/api/students/", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setStudents(res.data))
@@ -31,7 +31,7 @@ const EnrollStudentsForm = ({ courseId, onEnrolled }) => {
     if (selected.length === 0) return alert("Select at least one student");
 
     await axios.post(
-      `http://127.0.0.1:8000/api/courses/${courseId}/enroll/`,
+      `https://api.melwirt.com/api/courses/${courseId}/enroll/`,
       { student_ids: selected },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -81,7 +81,7 @@ const CourseContent = () => {
 
   const loadCourse = async () => {
     const res = await axios.get(
-      `http://127.0.0.1:8000/api/courses/${courseId}/`,
+      `https://api.melwirt.com/api/courses/${courseId}/`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     setCourse(res.data);
@@ -89,7 +89,7 @@ const CourseContent = () => {
 
   const loadContent = async () => {
     const res = await axios.get(
-      `http://127.0.0.1:8000/api/courses/${courseId}/content/`,
+      `https://api.melwirt.com/api/courses/${courseId}/content/`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     setModules(res.data);
@@ -99,7 +99,7 @@ const CourseContent = () => {
     if (!moduleData.title || !moduleData.order) return;
 
     await axios.post(
-      "http://127.0.0.1:8000/api/admin/modules/",
+      "https://api.melwirt.com/api/admin/modules/",
       { course: courseId, ...moduleData },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -113,7 +113,7 @@ const CourseContent = () => {
     if (!data?.title || !data?.order) return;
 
     await axios.post(
-      "http://127.0.0.1:8000/api/admin/sessions/",
+      "https://api.melwirt.com/api/admin/sessions/",
       {
         module: moduleId,
         title: data.title,
@@ -132,7 +132,7 @@ const CourseContent = () => {
     if (!selectedStudentId) return alert("Select student first");
 
     await axios.post(
-      "http://127.0.0.1:8000/api/admin/session-progress/",
+      "https://api.melwirt.com/api/admin/session-progress/",
       {
         student_id: selectedStudentId,
         session_id: sessionId,
@@ -148,7 +148,7 @@ const CourseContent = () => {
     if (!selectedStudentId) return;
 
     const res = await axios.get(
-      `http://127.0.0.1:8000/api/admin/course/${courseId}/student/${selectedStudentId}/progress/`,
+      `https://api.melwirt.com/api/admin/course/${courseId}/student/${selectedStudentId}/progress/`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
 
